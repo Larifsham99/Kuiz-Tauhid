@@ -2,3 +2,4 @@ node_modules/
 dist/
 kod-pengaktifan/
 .env
+*.tsbuildinfo
