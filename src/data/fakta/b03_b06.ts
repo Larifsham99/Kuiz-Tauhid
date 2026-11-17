@@ -41,7 +41,7 @@ export const fakta3: Fakta[] = [
 ];
 
 export const senarai3: Senarai[] = [
-  { id: 'b3-salbiyyah5', bab: 3, tajuk: 'Lima Sifat Salbiyyah (ikut tertib)', tertib: true,
+  { id: 'b3-salbiyyah5', bab: 3, tajuk: 'Sifat Salbiyyah (ikut tertib)', tertib: true, soalanBilangan: 'Berapakah bilangan Sifat Salbiyyah?', bukan: ['Wujud', 'Qudrah', 'Hayah', "'Ilmu"],
     item: ['Qidam', "Baqa'", 'Mukhalafatuhu lil-Hawadith', 'Qiyamuhu bi Nafsihi', 'Wahdaniyyah'], status: S },
   { id: 'b3-esa3', bab: 3, tajuk: 'Makna Esa (Wahdaniyyah)', tertib: false,
     item: ['Esa pada zat', 'Esa pada sifat', 'Esa pada perbuatan'], status: S },
@@ -80,12 +80,13 @@ export const fakta4: Fakta[] = [
 ];
 
 export const senarai4: Senarai[] = [
-  { id: 'b4-maani7', bab: 4, tajuk: "Tujuh Sifat Ma'ani (ikut tertib)", tertib: true,
+  { id: 'b4-maani7', bab: 4, tajuk: "Sifat Ma'ani (ikut tertib)", tertib: true, soalanBilangan: "Berapakah bilangan Sifat Ma'ani?", bukan: ['Wujud', 'Qidam', "Baqa'", 'Wahdaniyyah', 'Kaunuhu Qadiran'],
     item: ['Qudrah', 'Iradah', "'Ilmu", 'Hayah', "Sama'", 'Basar', 'Kalam'], status: S },
 ];
 
 export const taalluq4: Pasangan[] = [
   { id: 'b4-taalluq', bab: 4, tajuk: "Ta'alluq Sifat Ma'ani", kiri: 'Sifat', kanan: "Berta'alluq (berkaitan) dengan",
+    tanyaKanan: "Sifat **{x}** berta'alluq (berkaitan) dengan…", tanyaKiri: "Sifat Ma'ani manakah yang {y_}?",
     pasangan: [
       ['Qudrah', 'Segala perkara mumkin (harus)'],
       ['Iradah', 'Segala perkara mumkin (harus)'],
@@ -121,11 +122,12 @@ export const fakta5: Fakta[] = [
 
 export const pasangan5: Pasangan[] = [
   { id: 'b5-padan', bab: 5, tajuk: "Ma'ani ↔ Ma'nawiyyah", kiri: "Sifat Ma'ani", kanan: "Sifat Ma'nawiyyah",
+    tanyaKanan: "Sifat Ma'nawiyyah yang sepadan dengan **{x}** ialah…", tanyaKiri: "**{y}** sepadan dengan Sifat Ma'ani…",
     pasangan: [['Qudrah', 'Kaunuhu Qadiran'], ['Iradah', 'Kaunuhu Muridan'], ["'Ilmu", "Kaunuhu 'Aliman"], ['Hayah', 'Kaunuhu Hayyan'], ["Sama'", "Kaunuhu Sami'an"], ['Basar', 'Kaunuhu Basiran'], ['Kalam', 'Kaunuhu Mutakalliman']], status: S },
 ];
 
 export const senarai5: Senarai[] = [
-  { id: 'b5-manawiyyah7', bab: 5, tajuk: "Tujuh Sifat Ma'nawiyyah (ikut tertib)", tertib: true, item: MN.map((m) => m[1]), status: S },
+  { id: 'b5-manawiyyah7', bab: 5, tajuk: "Sifat Ma'nawiyyah (ikut tertib)", tertib: true, soalanBilangan: "Berapakah bilangan Sifat Ma'nawiyyah?", bukan: ['Qudrah', 'Iradah', 'Hayah', 'Kalam'], item: MN.map((m) => m[1]), status: S },
 ];
 
 // ===================== BAB 6: SIFAT HARUS BAGI ALLAH =====================

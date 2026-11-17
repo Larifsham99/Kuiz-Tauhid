@@ -1,6 +1,6 @@
 # KUIZ TAUHID: BEGINNER — Cadangan Skop Fasa 1 (v2)
 
-> Status: **Diluluskan (8 bab asal) + tambahan 4 bab**. Bank Fakta: `docs/BANK-FAKTA.md` (menunggu semakan).
+> Status: **Dibina (v1.0)** — tema zamrud (sepadan halaman jualan). Bank Fakta: `docs/BANK-FAKTA.md` (menunggu semakan; item ⚠ tidak dimainkan secara lalai).
 > Prototaip tema baharu: https://claude.ai/artifact/TFnfVvZXiSCo2viqsYTziU (baris "KUIZ TAUHID: BEGINNER").
 
 ## 1. Matlamat
@@ -23,7 +23,11 @@ Aplikasi kuiz **ringan** untuk pemula memahami asas akidah Ahli Sunnah wal Jamaa
 | 11 ✚ | Para Sahabat | **10 sahabat dijamin syurga**, Khulafa' al-Rasyidin & gelaran, yang terawal memeluk Islam |
 | 12 ✚ | Perkara Ghaib & Kisah Wajib Diimani | alam kubur, sangkakala, mahsyar, hisab, mizan, sirat, syafaat, haudh, kautsar, **10 tanda besar kiamat**, kisah dalam al-Quran (Isra' Mi'raj, Nabi Isa, Ibrahim, Musa, Yunus, Ashab al-Kahfi, Adam) |
 
-## 3. Tema baharu — "Malam Berbintang"
+## 3. Tema — Zamrud (dikemas kini; menggantikan cadangan "Malam Berbintang")
+
+Warna: Zamrud `#0E7A5A`, Malam `#0F1B2D`, Emas `#C99A2E`, latar `#F6F8F7`. Cadangan asal di bawah disimpan sebagai rekod.
+
+### Cadangan asal — "Malam Berbintang"
 - Warna: Malam `#1D1A4E`, Ungu `#5B4BDB`, Bintang `#F5A524`, latar `#F4F2FF`; Betul `#0B7F72` (gelap) / Salah `#F07167` (cerah) — berbeza kecerahan, mesra buta warna, sentiasa disertai ikon ✓ / ✗.
 - Fon: **Nunito** (bulat, mesra pemula) + **Amiri** (Arab). Mod gelap penuh.
 - **12 ikon bab** dilukis sendiri (SVG dua warna, ringan, tiada emoji): kitab, pelita, bintang 8 bucu, matahari, bulan sabit, neraca, menara, mahkota, sayap, kubah, pohon kurma, pintu gerbang.

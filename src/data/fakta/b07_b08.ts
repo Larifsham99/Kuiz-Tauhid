@@ -48,19 +48,20 @@ export const fakta7: Fakta[] = [
 ];
 
 export const senarai7: Senarai[] = [
-  { id: 'b7-wajib4', bab: 7, tajuk: 'Empat sifat wajib bagi rasul', tertib: true, item: ['Sidq', 'Amanah', 'Tabligh', 'Fatanah'], status: S },
+  { id: 'b7-wajib4', bab: 7, tajuk: 'Sifat wajib bagi rasul (ikut tertib)', tertib: true, soalanBilangan: 'Berapakah bilangan sifat wajib bagi rasul?', bukan: ['Kitman', 'Baladah', 'Khianah', 'Kizb'], item: ['Sidq', 'Amanah', 'Tabligh', 'Fatanah'], status: S },
   { id: 'b7-ulul-azmi-tertib', bab: 7, tajuk: "Ulul 'Azmi ikut tertib kelebihan", tertib: true,
     item: ['Nabi Muhammad ﷺ', 'Nabi Ibrahim', 'Nabi Musa', 'Nabi Isa', 'Nabi Nuh'],
     sahkan: 'Tertib kelebihan ikut kitab rujukan.', status: S },
-  { id: 'b7-25-nabi', bab: 7, tajuk: '25 nabi dan rasul yang wajib diketahui (ikut tertib)', tertib: true,
+  { id: 'b7-25-nabi', bab: 7, tajuk: 'Nabi dan rasul yang wajib diketahui (ikut tertib)', tertib: true, soalanBilangan: 'Berapakah bilangan nabi dan rasul yang wajib diketahui?',
     item: ['Adam', 'Idris', 'Nuh', 'Hud', 'Saleh', 'Ibrahim', 'Lut', 'Ismail', 'Ishaq', "Ya'qub", 'Yusuf', 'Ayyub', "Syu'aib", 'Musa', 'Harun', 'Zulkifli', 'Daud', 'Sulaiman', 'Ilyas', "Ilyasa'", 'Yunus', 'Zakaria', 'Yahya', 'Isa', 'Muhammad ﷺ'],
     nota: 'Nama-nama ini disebut dalam al-Quran.', status: S },
 ];
 
 export const pasangan7: Pasangan[] = [
-  { id: 'b7-lawan', bab: 7, tajuk: 'Sifat wajib ↔ sifat mustahil rasul', kiri: 'Wajib', kanan: 'Mustahil',
+  { id: 'b7-lawan', bab: 7, tajuk: 'Sifat wajib ↔ sifat mustahil rasul', kiri: 'Wajib', kanan: 'Mustahil', hanyaPadanan: true,
     pasangan: [['Sidq', 'Kizb'], ['Amanah', 'Khianah'], ['Tabligh', 'Kitman'], ['Fatanah', 'Baladah']], status: S },
   { id: 'b7-mukjizat-nabi', bab: 7, tajuk: 'Nabi ↔ mukjizat (dalam al-Quran)', kiri: 'Nabi', kanan: 'Mukjizat',
+    tanyaKanan: 'Apakah mukjizat **{x}**?', tanyaKiri: 'Mukjizat "{y}" dikurniakan kepada…',
     pasangan: [
       ['Nabi Muhammad ﷺ', 'Al-Quran (mukjizat terbesar)'],
       ['Nabi Musa', 'Tongkat menjadi ular dan membelah laut'],
@@ -88,7 +89,7 @@ export const fakta8: Fakta[] = [
 ];
 
 export const senarai8: Senarai[] = [
-  { id: 'b8-sifat20', bab: 8, tajuk: 'Sifat 20 ikut tertib', tertib: true,
+  { id: 'b8-sifat20', bab: 8, tajuk: 'Sifat 20 (ikut tertib)', tertib: true, soalanBilangan: 'Berapakah bilangan sifat yang wajib bagi Allah?',
     item: ['Wujud', 'Qidam', "Baqa'", 'Mukhalafatuhu lil-Hawadith', 'Qiyamuhu bi Nafsihi', 'Wahdaniyyah', 'Qudrah', 'Iradah', "'Ilmu", 'Hayah', "Sama'", 'Basar', 'Kalam',
       'Kaunuhu Qadiran', 'Kaunuhu Muridan', "Kaunuhu 'Aliman", 'Kaunuhu Hayyan', "Kaunuhu Sami'an", 'Kaunuhu Basiran', 'Kaunuhu Mutakalliman'], status: S },
   { id: 'b8-kategori4', bab: 8, tajuk: 'Empat kategori sifat wajib (ikut tertib)', tertib: true, item: ['Nafsiyyah (1)', 'Salbiyyah (5)', "Ma'ani (7)", "Ma'nawiyyah (7)"], status: S },

@@ -36,7 +36,7 @@ window.SALES = {
   jenis: "[SEKALI BAYAR / LANGGANAN]",
   akses: "[TEMPOH AKSES]",
   kaedah: "[KAEDAH AKSES — cth. kod pengaktifan dihantar melalui e-mel/WhatsApp]",
-  bilanganSoalan: "[BILANGAN]",       // cth. "300+" apabila disahkan
+  bilanganSoalan: "700+",             // soalan yang boleh dimainkan (tidak termasuk ⚠ perlu disahkan)
   penyemak: "[NAMA PENYEMAK / USTAZ]", // kosong = baris penyemak disembunyikan
   penjual: "[NAMA PENJUAL]",
   whatsapp: "",                         // cth. "60123456789" — kosong = butang WhatsApp disembunyikan
@@ -59,7 +59,7 @@ window.SALES = {
   --radius:22px; --shadow:0 1px 2px rgba(15,27,45,.05),0 10px 30px rgba(15,27,45,.08);
   --shadow-lg:0 20px 60px rgba(15,27,45,.18);
   /* tema aplikasi (untuk mockup) */
-  --app-malam:#1D1A4E; --app-ungu:#5B4BDB; --app-bintang:#F5A524; --app-bg:#F4F2FF; --app-betul:#0B7F72;
+  --app-malam:#0B3B2E; --app-ungu:#0E7A5A; --app-bintang:#C99A2E; --app-bg:#F6F8F7; --app-betul:#0E7A5A; /* tema aplikasi: zamrud */
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -119,20 +119,20 @@ section{padding:72px 0;scroll-margin-top:64px}
 .screen{width:100%;height:100%;border-radius:33px;overflow:hidden;background:var(--app-bg);font-family:"Plus Jakarta Sans",sans-serif;color:var(--app-malam);position:relative;display:flex;flex-direction:column;font-size:12px}
 .screen img.shot{width:100%;height:100%;object-fit:cover}
 .s-top{padding:40px 14px 10px;display:flex;align-items:center;gap:8px}
-.s-bar{flex:1;height:8px;border-radius:99px;background:#E2DEFA;overflow:hidden}
+.s-bar{flex:1;height:8px;border-radius:99px;background:#E3EEE8;overflow:hidden}
 .s-bar i{display:block;height:100%;background:var(--app-ungu);border-radius:99px}
-.s-pill{display:inline-block;font-size:10px;font-weight:800;padding:3px 8px;border-radius:99px;background:#ECE9FF;color:var(--app-ungu)}
+.s-pill{display:inline-block;font-size:10px;font-weight:800;padding:3px 8px;border-radius:99px;background:#E8F5EF;color:var(--app-ungu)}
 .s-q{font-size:15px;font-weight:800;line-height:1.3;padding:0 14px;margin-top:8px}
 .s-q b{color:var(--app-ungu)}
-.s-ar{font-size:20px;color:#4A4775;padding:2px 14px 0}
+.s-ar{font-size:20px;color:#4C5A6E;padding:2px 14px 0}
 .s-opts{display:flex;flex-direction:column;gap:7px;padding:10px 14px}
-.s-opt{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #DDD8FA;border-radius:12px;padding:9px 10px;font-weight:700;font-size:12.5px}
-.s-opt span{width:20px;height:20px;border-radius:6px;background:#ECE9FF;display:grid;place-items:center;font-size:10px;flex:none}
+.s-opt{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #DCE7E1;border-radius:12px;padding:9px 10px;font-weight:700;font-size:12.5px}
+.s-opt span{width:20px;height:20px;border-radius:6px;background:#E8F5EF;display:grid;place-items:center;font-size:10px;flex:none}
 .s-opt.ok{background:var(--app-betul);border-color:var(--app-betul);color:#fff}
 .s-opt.ok span{background:rgba(255,255,255,.22)}
-.s-opt.dim{color:#9C98BF;border-color:#EEEBFF}
-.s-fb{margin-top:auto;background:#DDF3EF;border-radius:18px 18px 0 0;padding:12px 14px 16px;color:#164A44}
-.s-fb b{color:#0B5F55;font-size:14px}
+.s-opt.dim{color:#94A3B8;border-color:#EEF2F0}
+.s-fb{margin-top:auto;background:#E8F5EF;border-radius:18px 18px 0 0;padding:12px 14px 16px;color:#0B4A38}
+.s-fb b{color:#0B5E46;font-size:14px}
 .s-fb .ar{font-size:16px;margin-top:4px}
 .s-btn{display:block;text-align:center;background:var(--app-betul);color:#fff;border-radius:12px;padding:10px;font-weight:800;margin-top:8px}
 .s-hero{background:var(--app-malam);color:#fff;padding:40px 14px 44px}
@@ -140,14 +140,14 @@ section{padding:72px 0;scroll-margin-top:64px}
 .ring{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;flex:none}
 .ring i{width:36px;height:36px;border-radius:50%;background:#fff;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:11px;color:var(--app-malam)}
 .s-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;padding:12px}
-.s-tile{background:#fff;border:1px solid #DDD8FA;border-radius:12px;padding:8px 4px;text-align:center;font-size:10px;font-weight:800;line-height:1.2}
+.s-tile{background:#fff;border:1px solid #DCE7E1;border-radius:12px;padding:8px 4px;text-align:center;font-size:10px;font-weight:800;line-height:1.2}
 .s-tile .ic{width:32px;height:32px;border-radius:10px;margin:0 auto 5px;display:grid;place-items:center}
-.s-tile em{display:block;font-style:normal;color:#B36B00;letter-spacing:1px;margin-top:3px}
-.s-tile em s,.s-big+div s{text-decoration:none;color:#D9D4F5}
+.s-tile em{display:block;font-style:normal;color:#A67C22;letter-spacing:1px;margin-top:3px}
+.s-tile em s,.s-big+div s{text-decoration:none;color:#D5DDD9}
 .s-res{padding:44px 14px 14px;text-align:center}
-.s-big{width:120px;height:120px;border-radius:50%;margin:10px auto;display:grid;place-items:center;background:conic-gradient(var(--app-bintang) 0 80%,#E2DEFA 80% 100%)}
+.s-big{width:120px;height:120px;border-radius:50%;margin:10px auto;display:grid;place-items:center;background:conic-gradient(var(--app-bintang) 0 80%,#E3EEE8 80% 100%)}
 .s-big i{width:96px;height:96px;border-radius:50%;background:var(--app-bg);display:grid;place-items:center;font-style:normal;font-size:28px;font-weight:800}
-.s-row{display:flex;justify-content:space-between;background:#fff;border-radius:12px;padding:9px 11px;margin:6px 0;font-weight:700;border:1px solid #E8E5FB}
+.s-row{display:flex;justify-content:space-between;background:#fff;border-radius:12px;padding:9px 11px;margin:6px 0;font-weight:700;border:1px solid #E3E8EE}
 
 /* Bahagian masalah */
 .problem{background:var(--bg-2)}
@@ -207,12 +207,12 @@ section{padding:72px 0;scroll-margin-top:64px}
 .qopt:hover:not(:disabled){border-color:var(--emerald);background:var(--emerald-50)}
 .qopt:active:not(:disabled){transform:scale(.99)}
 .qopt .k{width:30px;height:30px;border-radius:9px;background:var(--emerald-50);display:grid;place-items:center;font-size:13px;flex:none}
-.qopt.ok{background:#0B7F72;border-color:#0B7F72;color:#fff}.qopt.ok .k{background:rgba(255,255,255,.2)}
+.qopt.ok{background:#0E7A5A;border-color:#0E7A5A;color:#fff}.qopt.ok .k{background:rgba(255,255,255,.2)}
 .qopt.no{background:#FDECEC;border-color:#E5484D;color:#8E1B1F}.qopt.no .k{background:#fff}
 .qopt:disabled{cursor:default}
 .qfb{margin-top:14px;border-radius:16px;padding:14px 16px;display:none}
 .qfb.show{display:block;animation:pop .3s ease}
-.qfb.ok{background:#DDF3EF;color:#164A44}.qfb.no{background:#FFF4E5;color:#6B4200}
+.qfb.ok{background:#E8F5EF;color:#0B4A38}.qfb.no{background:#FFF4E5;color:#6B4200}
 .qfb b{display:block;font-size:17px}
 .qfb .ar{font-size:20px;margin-top:6px}
 .qfb small{display:block;opacity:.8;margin-top:2px}
@@ -372,7 +372,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
       <!-- Mockup: skrin soalan -->
       <div class="phone" role="img" aria-label="Paparan soalan dalam aplikasi Kuiz Tauhid">
         <div class="screen" data-screen="soalan">
-          <div class="s-top"><div class="s-bar"><i style="width:60%"></i></div><b style="color:#B36B00">★ 3x</b></div>
+          <div class="s-top"><div class="s-bar"><i style="width:60%"></i></div><b style="color:#A67C22">★ 3x</b></div>
           <div style="padding:0 14px"><span class="s-pill">Bab 4 · Sifat Ma'ani</span></div>
           <div class="s-q">Apakah lawan (sifat mustahil) bagi sifat <b>Iradah</b>?</div>
           <div class="s-ar arab">الإرادة</div>
@@ -419,19 +419,19 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
           <div class="s-hero">
             <div style="opacity:.75;font-size:11px">Assalamualaikum,</div>
             <div style="font-size:16px;font-weight:800">Aisyah</div>
-            <div style="margin-top:6px;display:flex;gap:6px"><span style="background:rgba(255,255,255,.12);border-radius:99px;padding:3px 9px;font-weight:800;color:#F5A524">★ 1,240</span><span style="background:rgba(255,255,255,.12);border-radius:99px;padding:3px 9px;font-weight:800">5 hari</span></div>
+            <div style="margin-top:6px;display:flex;gap:6px"><span style="background:rgba(255,255,255,.12);border-radius:99px;padding:3px 9px;font-weight:800;color:#C99A2E">★ 1,240</span><span style="background:rgba(255,255,255,.12);border-radius:99px;padding:3px 9px;font-weight:800">5 hari</span></div>
           </div>
           <div class="s-card">
-            <div class="ring" style="background:conic-gradient(#F5A524 0 70%,#ECE9FF 70% 100%)"><i>7/10</i></div>
-            <div><div style="font-size:9.5px;font-weight:800;color:#5B4BDB">CABARAN HARIAN</div><b style="font-size:13px">Sifat Ma'ani</b><div style="font-size:10.5px;color:#4A4775">3 soalan lagi</div></div>
+            <div class="ring" style="background:conic-gradient(#C99A2E 0 70%,#E8F5EF 70% 100%)"><i>7/10</i></div>
+            <div><div style="font-size:9.5px;font-weight:800;color:#0E7A5A">CABARAN HARIAN</div><b style="font-size:13px">Sifat Ma'ani</b><div style="font-size:10.5px;color:#4C5A6E">3 soalan lagi</div></div>
           </div>
           <div class="s-grid">
-            <div class="s-tile"><div class="ic" style="background:#ECE9FF"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 12c6-2 12-1 18 3v24c-6-4-12-5-18-3zM42 12c-6-2-12-1-18 3v24c6-4 12-5 18-3z" fill="#5B4BDB"/><path d="M24 2l2 4 4 2-4 2-2 4-2-4-4-2 4-2z" fill="#F5A524"/></svg></div>Ilmu Tauhid<em>★★★</em></div>
-            <div class="s-tile"><div class="ic" style="background:#FFF1D6"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5a12 12 0 0 0-7 21.7V31h14v-4.3A12 12 0 0 0 24 5z" fill="#5B4BDB"/><path d="M18 34h12v3a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z" fill="#F5A524"/></svg></div>Hukum Akal<em>★★<s>★</s></em></div>
-            <div class="s-tile"><div class="ic" style="background:#ECE9FF"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5l19 19-19 19L5 24zM11 11h26v26H11z" fill="#5B4BDB"/><path d="M24 18a6 6 0 1 1 0 12a6 6 0 1 1 0-12z" fill="#F5A524"/></svg></div>Sifat 20<em>★★<s>★</s></em></div>
-            <div class="s-tile"><div class="ic" style="background:#FFF1D6"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 23C18 11 8 9 3 11c2 9 9 15 21 17zM24 23c6-12 16-14 21-12-2 9-9 15-21 17z" fill="#5B4BDB"/><path d="M24 19a5 5 0 1 1 0 10a5 5 0 1 1 0-10z" fill="#F5A524"/></svg></div>Malaikat<em>★<s>★</s><s>★</s></em></div>
-            <div class="s-tile"><div class="ic" style="background:#ECE9FF"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 31a16 16 0 0 1 32 0zM6 31h36v13H6z" fill="#5B4BDB"/><path d="M23 6h2v9h-2zM20 36h8v8h-8z" fill="#F5A524"/></svg></div>Keluarga Nabi ﷺ<em><s>★</s><s>★</s><s>★</s></em></div>
-            <div class="s-tile"><div class="ic" style="background:#FFF1D6"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M22 22h4v23h-4z" fill="#5B4BDB"/><path d="M24 22C20 12 10 10 5 14c8-2 13 2 19 8zM24 22c4-10 14-12 19-8-8-2-13 2-19 8z" fill="#F5A524"/></svg></div>Sahabat<em><s>★</s><s>★</s><s>★</s></em></div>
+            <div class="s-tile"><div class="ic" style="background:#E8F5EF"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 12c6-2 12-1 18 3v24c-6-4-12-5-18-3zM42 12c-6-2-12-1-18 3v24c6-4 12-5 18-3z" fill="#0E7A5A"/><path d="M24 2l2 4 4 2-4 2-2 4-2-4-4-2 4-2z" fill="#C99A2E"/></svg></div>Ilmu Tauhid<em>★★★</em></div>
+            <div class="s-tile"><div class="ic" style="background:#FBF6E8"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5a12 12 0 0 0-7 21.7V31h14v-4.3A12 12 0 0 0 24 5z" fill="#0E7A5A"/><path d="M18 34h12v3a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z" fill="#C99A2E"/></svg></div>Hukum Akal<em>★★<s>★</s></em></div>
+            <div class="s-tile"><div class="ic" style="background:#E8F5EF"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5l19 19-19 19L5 24zM11 11h26v26H11z" fill="#0E7A5A"/><path d="M24 18a6 6 0 1 1 0 12a6 6 0 1 1 0-12z" fill="#C99A2E"/></svg></div>Sifat 20<em>★★<s>★</s></em></div>
+            <div class="s-tile"><div class="ic" style="background:#FBF6E8"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 23C18 11 8 9 3 11c2 9 9 15 21 17zM24 23c6-12 16-14 21-12-2 9-9 15-21 17z" fill="#0E7A5A"/><path d="M24 19a5 5 0 1 1 0 10a5 5 0 1 1 0-10z" fill="#C99A2E"/></svg></div>Malaikat<em>★<s>★</s><s>★</s></em></div>
+            <div class="s-tile"><div class="ic" style="background:#E8F5EF"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 31a16 16 0 0 1 32 0zM6 31h36v13H6z" fill="#0E7A5A"/><path d="M23 6h2v9h-2zM20 36h8v8h-8z" fill="#C99A2E"/></svg></div>Keluarga Nabi ﷺ<em><s>★</s><s>★</s><s>★</s></em></div>
+            <div class="s-tile"><div class="ic" style="background:#FBF6E8"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M22 22h4v23h-4z" fill="#0E7A5A"/><path d="M24 22C20 12 10 10 5 14c8-2 13 2 19 8zM24 22c4-10 14-12 19-8-8-2-13 2-19 8z" fill="#C99A2E"/></svg></div>Sahabat<em><s>★</s><s>★</s><s>★</s></em></div>
           </div>
         </div>
       </div>
@@ -516,14 +516,14 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
       <figure>
         <div class="phone"><div class="screen" data-screen="utama">
           <div class="s-hero"><div style="opacity:.75;font-size:11px">Assalamualaikum,</div><div style="font-size:16px;font-weight:800">Ahmad</div></div>
-          <div class="s-card"><div class="ring" style="background:conic-gradient(#F5A524 0 40%,#ECE9FF 40% 100%)"><i>4/10</i></div><div><div style="font-size:9.5px;font-weight:800;color:#5B4BDB">CABARAN HARIAN</div><b style="font-size:13px">Para Sahabat</b></div></div>
+          <div class="s-card"><div class="ring" style="background:conic-gradient(#C99A2E 0 40%,#E8F5EF 40% 100%)"><i>4/10</i></div><div><div style="font-size:9.5px;font-weight:800;color:#0E7A5A">CABARAN HARIAN</div><b style="font-size:13px">Para Sahabat</b></div></div>
           <div class="s-grid">
-            <div class="s-tile"><div class="ic" style="background:#ECE9FF;font-size:15px;color:#5B4BDB">1</div>Ilmu Tauhid<em>★★★</em></div>
-            <div class="s-tile"><div class="ic" style="background:#FFF1D6;font-size:15px;color:#B36B00">2</div>Hukum Akal<em>★★<s>★</s></em></div>
-            <div class="s-tile"><div class="ic" style="background:#ECE9FF;font-size:15px;color:#5B4BDB">3</div>Sifat Salbiyyah<em>★<s>★</s><s>★</s></em></div>
-            <div class="s-tile"><div class="ic" style="background:#FFF1D6;font-size:15px;color:#B36B00">4</div>Sifat Ma'ani<em><s>★</s><s>★</s><s>★</s></em></div>
-            <div class="s-tile"><div class="ic" style="background:#ECE9FF;font-size:15px;color:#5B4BDB">9</div>Malaikat<em><s>★</s><s>★</s><s>★</s></em></div>
-            <div class="s-tile"><div class="ic" style="background:#FFF1D6;font-size:15px;color:#B36B00">11</div>Sahabat<em><s>★</s><s>★</s><s>★</s></em></div>
+            <div class="s-tile"><div class="ic" style="background:#E8F5EF;font-size:15px;color:#0E7A5A">1</div>Ilmu Tauhid<em>★★★</em></div>
+            <div class="s-tile"><div class="ic" style="background:#FBF6E8;font-size:15px;color:#A67C22">2</div>Hukum Akal<em>★★<s>★</s></em></div>
+            <div class="s-tile"><div class="ic" style="background:#E8F5EF;font-size:15px;color:#0E7A5A">3</div>Sifat Salbiyyah<em>★<s>★</s><s>★</s></em></div>
+            <div class="s-tile"><div class="ic" style="background:#FBF6E8;font-size:15px;color:#A67C22">4</div>Sifat Ma'ani<em><s>★</s><s>★</s><s>★</s></em></div>
+            <div class="s-tile"><div class="ic" style="background:#E8F5EF;font-size:15px;color:#0E7A5A">9</div>Malaikat<em><s>★</s><s>★</s><s>★</s></em></div>
+            <div class="s-tile"><div class="ic" style="background:#FBF6E8;font-size:15px;color:#A67C22">11</div>Sahabat<em><s>★</s><s>★</s><s>★</s></em></div>
           </div>
           <div style="margin:4px 12px 0;background:#FDE2E0;border-radius:12px;padding:9px 11px;font-weight:800">Ulang Salah · 6 soalan</div>
         </div></div>
@@ -560,13 +560,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-bet
           <div class="s-res">
             <b style="font-size:16px">Kuiz tamat!</b>
             <div class="s-big"><i>8/10</i></div>
-            <div style="font-weight:800;color:#B36B00;font-size:14px">+80 ★ · Bintang bab: ★★<s>★</s></div>
+            <div style="font-weight:800;color:#A67C22;font-size:14px">+80 ★ · Bintang bab: ★★<s>★</s></div>
             <div style="margin-top:10px;text-align:left">
-              <div class="s-row"><span>Betul</span><b style="color:#0B7F72">8</b></div>
+              <div class="s-row"><span>Betul</span><b style="color:#0E7A5A">8</b></div>
               <div class="s-row"><span>Perlu diulang</span><b style="color:#B3261E">2</b></div>
               <div class="s-row"><span>Istiqamah</span><b>5 hari</b></div>
             </div>
-            <span class="s-btn" style="background:#5B4BDB">Ulang 2 soalan salah</span>
+            <span class="s-btn" style="background:#0E7A5A">Ulang 2 soalan salah</span>
           </div>
         </div></div>
         <figcaption>Keputusan kuiz<small>Markah, bintang dan soalan yang perlu diulang</small></figcaption>

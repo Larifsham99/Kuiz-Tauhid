@@ -9,7 +9,7 @@
 - 📝 **Nota sahaja** = dipaparkan dalam nota, tidak dijadikan soalan kuiz.
 - Semua item berstatus **belum disemak** sehingga anda sahkan.
 
-**Jumlah:** 126 fakta · 26 senarai · 19 pernyataan klasifikasi · 8 set padanan = **179 item** (20 ditanda ⚠️ perlu sahkan).
+**Jumlah:** 127 fakta · 26 senarai · 19 pernyataan klasifikasi · 10 set padanan = **182 item** (20 ditanda ⚠️ perlu sahkan).
 
 ## Kandungan
 
@@ -236,7 +236,7 @@ Esa — Esa pada zat, Esa pada sifat dan Esa pada perbuatan.
 
 #### Senarai
 
-**Lima Sifat Salbiyyah (ikut tertib)**  `b3-salbiyyah5` · _ikut tertib_
+**Sifat Salbiyyah (ikut tertib)**  `b3-salbiyyah5` · _ikut tertib_
 
 1. Qidam
 2. Baqa'
@@ -300,7 +300,7 @@ Berkata-kata — kalam Allah adalah sifat yang qadim, bukan berhuruf dan bukan b
 
 #### Senarai
 
-**Tujuh Sifat Ma'ani (ikut tertib)**  `b4-maani7` · _ikut tertib_
+**Sifat Ma'ani (ikut tertib)**  `b4-maani7` · _ikut tertib_
 
 1. Qudrah
 2. Iradah
@@ -369,7 +369,7 @@ Keadaan-Nya Yang Berkata-kata
 
 #### Senarai
 
-**Tujuh Sifat Ma'nawiyyah (ikut tertib)**  `b5-manawiyyah7` · _ikut tertib_
+**Sifat Ma'nawiyyah (ikut tertib)**  `b5-manawiyyah7` · _ikut tertib_
 
 1. Kaunuhu Qadiran
 2. Kaunuhu Muridan
@@ -488,7 +488,7 @@ Perkara luar biasa yang berlaku pada orang fasiq atau kafir sebagai tipu daya (d
 
 #### Senarai
 
-**Empat sifat wajib bagi rasul**  `b7-wajib4` · _ikut tertib_
+**Sifat wajib bagi rasul (ikut tertib)**  `b7-wajib4` · _ikut tertib_
 
 1. Sidq
 2. Amanah
@@ -505,7 +505,7 @@ Perkara luar biasa yang berlaku pada orang fasiq atau kafir sebagai tipu daya (d
 
 ⚠️ **Perlu sahkan:** Tertib kelebihan ikut kitab rujukan.
 
-**25 nabi dan rasul yang wajib diketahui (ikut tertib)**  `b7-25-nabi` · _ikut tertib_
+**Nabi dan rasul yang wajib diketahui (ikut tertib)**  `b7-25-nabi` · _ikut tertib_
 
 1. Adam
 2. Idris
@@ -592,7 +592,7 @@ Segala sesuatu selain Allah berhajat kepada-Nya. Di bawahnya terhimpun 9 sifat.
 
 #### Senarai
 
-**Sifat 20 ikut tertib**  `b8-sifat20` · _ikut tertib_
+**Sifat 20 (ikut tertib)**  `b8-sifat20` · _ikut tertib_
 
 1. Wujud
 2. Qidam
@@ -693,7 +693,7 @@ Beriman bahawa segala yang berlaku, baik atau buruk, adalah dengan ketentuan dan
 
 ℹ️ Berdasarkan Hadis Jibril riwayat Muslim.
 
-**Sepuluh malaikat yang wajib diketahui**  `b9-malaikat10`
+**Malaikat yang wajib diketahui**  `b9-malaikat10`
 
 - Jibril
 - Mikail
@@ -718,12 +718,17 @@ Beriman bahawa segala yang berlaku, baik atau buruk, adalah dengan ketentuan dan
 | 'Izrail | Mencabut nyawa |
 | Munkar | Menyoal mayat di dalam kubur |
 | Nakir | Menyoal mayat di dalam kubur |
-| Raqib | Mencatat amalan baik |
-| 'Atid | Mencatat amalan buruk |
 | Malik | Menjaga neraka |
 | Ridwan | Menjaga syurga |
 
-ℹ️ Munkar dan Nakir mempunyai tugas yang sama — dalam soalan padanan, kedua-duanya diterima.
+ℹ️ Munkar dan Nakir mempunyai tugas yang sama.
+
+**Raqib dan 'Atid**  `b9-raqib-atid`
+
+| Malaikat | Tugas |
+|---|---|
+| Raqib | Mencatat amalan baik |
+| 'Atid | Mencatat amalan buruk |
 
 ⚠️ **Perlu sahkan:** Pembahagian tugas Raqib (baik) dan 'Atid (buruk) mengikut kitab rujukan; sebahagian ulama menyatakan kedua-duanya mencatat.
 
@@ -787,6 +792,9 @@ Di Madinah pada hari Isnin, Rabiul Awwal tahun 11 Hijrah, ketika berumur 63 tahu
 
 **Anak yang hidup selepas kewafatan Nabi ﷺ**  `b10-anak-hidup`  
 Fatimah al-Zahra' sahaja; semua anak baginda yang lain wafat ketika baginda masih hidup.  
+
+**Al-Qasim**  `b10-qasim`  
+Anak lelaki sulung Nabi ﷺ daripada Khadijah; kerana itu baginda digelar Abu al-Qasim.  
 
 **Ibrahim**  `b10-ibrahim`  
 Anak Nabi ﷺ daripada Mariah al-Qibtiyyah; wafat ketika masih kecil.  
@@ -924,7 +932,7 @@ Muazzin Rasulullah ﷺ.
 
 #### Senarai
 
-**Sepuluh sahabat yang dijamin syurga**  `b11-sepuluh`
+**Sahabat yang dijamin syurga**  `b11-sepuluh`
 
 - Abu Bakr al-Siddiq
 - Umar bin al-Khattab
@@ -963,7 +971,13 @@ Muazzin Rasulullah ﷺ.
 | Umar bin al-Khattab | Al-Faruq |
 | Uthman bin Affan | Dzun Nurain |
 | Hamzah bin Abdul Muttalib | Sayyid al-Syuhada' |
+
+**Gelaran Abu Ubaidah**  `b11-gelaran-abu-ubaidah`
+
+| Sahabat | Gelaran |
+|---|---|
 | Abu Ubaidah bin al-Jarrah | Amin al-Ummah (orang kepercayaan umat) |
+| Abu Bakr | Al-Siddiq |
 
 ⚠️ **Perlu sahkan:** Gelaran Abu Ubaidah — hadis riwayat al-Bukhari dan Muslim.
 

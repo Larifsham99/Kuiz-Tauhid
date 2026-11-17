@@ -18,6 +18,7 @@ export const fakta10: Fakta[] = [
   { id: 'b10-wahyu', bab: 10, kumpulan: 'Riwayat hidup', nama: 'Wahyu pertama', makna: "Di Gua Hira' ketika baginda berumur 40 tahun: Surah al-'Alaq ayat 1–5.", status: S },
   { id: 'b10-wafat', bab: 10, kumpulan: 'Riwayat hidup', nama: 'Kewafatan', makna: 'Di Madinah pada hari Isnin, Rabiul Awwal tahun 11 Hijrah, ketika berumur 63 tahun.', status: S },
   { id: 'b10-anak-hidup', bab: 10, kumpulan: 'Anak-anak', nama: 'Anak yang hidup selepas kewafatan Nabi ﷺ', makna: 'Fatimah al-Zahra\' sahaja; semua anak baginda yang lain wafat ketika baginda masih hidup.', status: S },
+  { id: 'b10-qasim', bab: 10, kumpulan: 'Anak-anak', nama: 'Al-Qasim', makna: 'Anak lelaki sulung Nabi ﷺ daripada Khadijah; kerana itu baginda digelar Abu al-Qasim.', status: S },
   { id: 'b10-ibrahim', bab: 10, kumpulan: 'Anak-anak', nama: 'Ibrahim', makna: 'Anak Nabi ﷺ daripada Mariah al-Qibtiyyah; wafat ketika masih kecil.', status: S },
   { id: 'b10-cucu', bab: 10, kumpulan: 'Anak-anak', nama: 'Cucu Nabi ﷺ', makna: 'Al-Hasan dan al-Husain, anak Fatimah dan Ali bin Abi Talib.', status: S },
   { id: 'b10-ummahat', bab: 10, kumpulan: 'Isteri', nama: "Ummahat al-Mu'minin", arab: 'أمهات المؤمنين', makna: 'Gelaran bagi isteri-isteri Nabi ﷺ — "ibu-ibu orang beriman".', status: S },
@@ -35,11 +36,12 @@ export const senarai10: Senarai[] = [
   { id: 'b10-isteri', bab: 10, tajuk: 'Isteri-isteri Nabi ﷺ (Ummahat al-Mu\'minin)', tertib: false,
     item: ['Khadijah binti Khuwailid', "Saudah binti Zam'ah", 'Aisyah binti Abi Bakr', 'Hafsah binti Umar', 'Zainab binti Khuzaimah', 'Ummu Salamah (Hind binti Abi Umayyah)', 'Zainab binti Jahsy', 'Juwairiyah binti al-Harith', 'Ummu Habibah (Ramlah binti Abi Sufyan)', 'Safiyyah binti Huyai', 'Maimunah binti al-Harith'],
     sahkan: 'Senarai 11 isteri dan tertib perkahwinan.', status: S },
-  { id: 'b10-anak-perempuan', bab: 10, tajuk: 'Anak perempuan Nabi ﷺ', tertib: false, item: ['Zainab', 'Ruqayyah', 'Ummu Kalthum', "Fatimah al-Zahra'"], status: S },
+  { id: 'b10-anak-perempuan', bab: 10, tajuk: 'Anak perempuan Nabi ﷺ', tertib: false, soalanBilangan: 'Berapakah bilangan anak perempuan Nabi ﷺ?', bukan: ['Aisyah', 'Hafsah', 'Halimah', 'Aminah'], item: ['Zainab', 'Ruqayyah', 'Ummu Kalthum', "Fatimah al-Zahra'"], status: S },
 ];
 
 export const pasangan10: Pasangan[] = [
   { id: 'b10-peranan', bab: 10, tajuk: 'Nama ↔ hubungan dengan Nabi ﷺ', kiri: 'Nama', kanan: 'Hubungan',
+    tanyaKanan: 'Apakah hubungan **{x}** dengan Nabi ﷺ?', tanyaKiri: 'Siapakah **{y_}** Nabi ﷺ?',
     pasangan: [['Aminah binti Wahb', 'Ibu'], ['Abdullah bin Abdul Muttalib', 'Bapa'], ['Abdul Muttalib', 'Datuk'], ["Halimah al-Sa'diyyah", 'Ibu susuan'], ['Ummu Aiman', 'Pengasuh'], ['Abu Talib', 'Bapa saudara yang memelihara'], ['Khadijah', 'Isteri pertama'], ['Al-Hasan dan al-Husain', 'Cucu']], status: S },
 ];
 
@@ -61,9 +63,9 @@ export const fakta11: Fakta[] = [
 ];
 
 export const senarai11: Senarai[] = [
-  { id: 'b11-sepuluh', bab: 11, tajuk: 'Sepuluh sahabat yang dijamin syurga', tertib: false,
+  { id: 'b11-sepuluh', bab: 11, tajuk: 'Sahabat yang dijamin syurga', tertib: false, soalanBilangan: 'Berapakah bilangan sahabat yang dijamin syurga dalam satu hadis?', bukan: ['Bilal bin Rabah', 'Hamzah bin Abdul Muttalib', 'Zaid bin Harithah', 'Khalid bin al-Walid'],
     item: ['Abu Bakr al-Siddiq', 'Umar bin al-Khattab', 'Uthman bin Affan', 'Ali bin Abi Talib', 'Talhah bin Ubaidillah', "Al-Zubair bin al-'Awwam", 'Abdul Rahman bin Auf', "Sa'd bin Abi Waqqas", "Sa'id bin Zaid", 'Abu Ubaidah bin al-Jarrah'], status: S },
-  { id: 'b11-khulafa', bab: 11, tajuk: "Khulafa' al-Rasyidin (ikut tertib)", tertib: true,
+  { id: 'b11-khulafa', bab: 11, tajuk: "Khulafa' al-Rasyidin (ikut tertib)", tertib: true, soalanBilangan: "Berapakah bilangan Khulafa' al-Rasyidin?", bukan: ['Hamzah bin Abdul Muttalib', 'Bilal bin Rabah', "Sa'd bin Abi Waqqas"],
     item: ['Abu Bakr al-Siddiq', 'Umar bin al-Khattab', 'Uthman bin Affan', 'Ali bin Abi Talib'],
     nota: 'Tertib kelebihan (afdhaliyyah) para sahabat di sisi Ahli Sunnah mengikut tertib khilafah ini.', status: S },
   { id: 'b11-awal', bab: 11, tajuk: 'Yang terawal memeluk Islam', tertib: false,
@@ -72,7 +74,10 @@ export const senarai11: Senarai[] = [
 
 export const pasangan11: Pasangan[] = [
   { id: 'b11-gelaran', bab: 11, tajuk: 'Sahabat ↔ gelaran', kiri: 'Sahabat', kanan: 'Gelaran',
-    pasangan: [['Abu Bakr', 'Al-Siddiq'], ['Umar bin al-Khattab', 'Al-Faruq'], ['Uthman bin Affan', 'Dzun Nurain'], ['Hamzah bin Abdul Muttalib', "Sayyid al-Syuhada'"], ['Abu Ubaidah bin al-Jarrah', 'Amin al-Ummah (orang kepercayaan umat)']],
+    tanyaKanan: 'Apakah gelaran **{x}**?', tanyaKiri: 'Siapakah sahabat yang digelar **{y}**?',
+    pasangan: [['Abu Bakr', 'Al-Siddiq'], ['Umar bin al-Khattab', 'Al-Faruq'], ['Uthman bin Affan', 'Dzun Nurain'], ['Hamzah bin Abdul Muttalib', "Sayyid al-Syuhada'"]], status: S },
+  { id: 'b11-gelaran-abu-ubaidah', bab: 11, tajuk: 'Gelaran Abu Ubaidah', kiri: 'Sahabat', kanan: 'Gelaran',
+    pasangan: [['Abu Ubaidah bin al-Jarrah', 'Amin al-Ummah (orang kepercayaan umat)'], ['Abu Bakr', 'Al-Siddiq']],
     sahkan: 'Gelaran Abu Ubaidah — hadis riwayat al-Bukhari dan Muslim.', status: S },
 ];
 

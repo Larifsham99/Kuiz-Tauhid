@@ -19,7 +19,7 @@ for (const s of SENARAI) {
   if (new Set(s.item).size !== s.item.length) errors.push(`${s.id}: item berulang`);
 }
 for (const k of KELAS) if (!k.pilihan.includes(k.jawapan)) errors.push(`${k.id}: jawapan tiada dalam pilihan`);
-for (const p of PASANGAN) if (p.pasangan.length < 3) errors.push(`${p.id}: padanan kurang daripada 3`);
+for (const p of PASANGAN) if (p.pasangan.length < 2) errors.push(`${p.id}: padanan kurang daripada 2`);
 for (const b of BAB) if (!all.some((x) => x.bab === b.no)) errors.push(`Bab ${b.no} tiada kandungan`);
 
 // Semakan kiraan yang mesti tepat

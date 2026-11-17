@@ -50,6 +50,10 @@ export interface Senarai {
   tajuk: string;
   item: string[];
   tertib: boolean;
+  /** Soalan bilangan, cth. "Berapakah bilangan Sifat Salbiyyah?" (jawapan = bilangan item) */
+  soalanBilangan?: string;
+  /** Contoh yang BUKAN ahli senarai (dipilih sendiri) — untuk soalan "Yang manakah BUKAN …" */
+  bukan?: string[];
   nota?: string;
   sahkan?: string;
   kuiz?: boolean;
@@ -77,6 +81,12 @@ export interface Pasangan {
   kiri: string; // label lajur kiri
   kanan: string; // label lajur kanan
   pasangan: [string, string][];
+  /** Templat soalan ke kanan, {x} = item kiri. cth. "Apakah tugas malaikat **{x}**?" */
+  tanyaKanan?: string;
+  /** Templat soalan ke kiri, {y} = item kanan, {y_} = item kanan dengan huruf pertama kecil (hanya untuk item kanan yang unik). */
+  tanyaKiri?: string;
+  /** true = hanya soalan padanan (elak bertindih dengan soalan fakta) */
+  hanyaPadanan?: boolean;
   nota?: string;
   sahkan?: string;
   status: Status;

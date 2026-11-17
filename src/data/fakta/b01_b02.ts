@@ -43,7 +43,7 @@ export const fakta1: Fakta[] = [
 export const senarai1: Senarai[] = [
   { id: 'b1-nama-lain', bab: 1, tajuk: 'Nama lain bagi Ilmu Tauhid', tertib: false,
     item: ['Ilmu Usuluddin (أصول الدين)', 'Ilmu Kalam (علم الكلام)', "Ilmu 'Aqa'id (علم العقائد)", 'Ilmu Sifat (علم الصفات)', 'Al-Fiqh al-Akbar (الفقه الأكبر)'], status: S },
-  { id: 'b1-syarat-mukallaf', bab: 1, tajuk: 'Syarat menjadi mukallaf', tertib: false,
+  { id: 'b1-syarat-mukallaf', bab: 1, tajuk: 'Syarat menjadi mukallaf', tertib: false, soalanBilangan: 'Berapakah syarat seseorang menjadi mukallaf?', bukan: ['Lelaki', 'Merdeka', 'Kaya'],
     item: ['Baligh', 'Berakal', 'Sampai dakwah Islam'], status: S },
   { id: 'b1-tanda-baligh', bab: 1, tajuk: 'Tanda baligh (Mazhab Syafie)', tertib: false,
     item: ['Keluar mani (lelaki dan perempuan)', 'Haid (perempuan)', 'Cukup umur 15 tahun qamariah'], status: S },
@@ -72,7 +72,7 @@ export const fakta2: Fakta[] = [
 ];
 
 export const senarai2: Senarai[] = [
-  { id: 'b2-bahagian', bab: 2, tajuk: 'Bahagian hukum', tertib: false, item: ['Hukum Syarak', 'Hukum Adat', 'Hukum Akal'], status: S },
+  { id: 'b2-bahagian', bab: 2, tajuk: 'Bahagian hukum', tertib: false, soalanBilangan: 'Hukum terbahagi kepada berapa bahagian?', item: ['Hukum Syarak', 'Hukum Adat', 'Hukum Akal'], status: S },
   { id: 'b2-akal3', bab: 2, tajuk: 'Bahagian Hukum Akal', tertib: false, item: ['Wajib', 'Mustahil', 'Harus'], status: S },
 ];
 

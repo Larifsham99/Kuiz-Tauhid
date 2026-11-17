@@ -36,18 +36,19 @@ export const fakta9: Fakta[] = [
 ];
 
 export const senarai9: Senarai[] = [
-  { id: 'b9-rukun-iman', bab: 9, tajuk: 'Rukun Iman (ikut tertib)', tertib: true,
+  { id: 'b9-rukun-iman', bab: 9, tajuk: 'Rukun Iman (ikut tertib)', tertib: true, soalanBilangan: 'Berapakah bilangan rukun iman?', bukan: ['Mendirikan solat', 'Mengeluarkan zakat', 'Berpuasa di bulan Ramadan'],
     item: ['Beriman kepada Allah', 'Beriman kepada malaikat', 'Beriman kepada kitab-kitab', 'Beriman kepada rasul-rasul', 'Beriman kepada hari akhirat', "Beriman kepada qada' dan qadar"],
     nota: 'Berdasarkan Hadis Jibril riwayat Muslim.', status: S },
-  { id: 'b9-rukun-islam', bab: 9, tajuk: 'Rukun Islam (ikut tertib)', tertib: true,
+  { id: 'b9-rukun-islam', bab: 9, tajuk: 'Rukun Islam (ikut tertib)', tertib: true, soalanBilangan: 'Berapakah bilangan rukun Islam?', bukan: ['Beriman kepada malaikat', 'Beriman kepada hari akhirat', "Beriman kepada qada' dan qadar"],
     item: ['Mengucap dua kalimah syahadah', 'Mendirikan solat', 'Mengeluarkan zakat', 'Berpuasa di bulan Ramadan', 'Menunaikan haji bagi yang mampu'],
     nota: 'Berdasarkan Hadis Jibril riwayat Muslim.', status: S },
-  { id: 'b9-malaikat10', bab: 9, tajuk: 'Sepuluh malaikat yang wajib diketahui', tertib: false,
+  { id: 'b9-malaikat10', bab: 9, tajuk: 'Malaikat yang wajib diketahui', tertib: false, soalanBilangan: 'Berapakah bilangan malaikat yang wajib diketahui?',
     item: ['Jibril', 'Mikail', 'Israfil', "'Izrail", 'Munkar', 'Nakir', 'Raqib', "'Atid", 'Malik', 'Ridwan'], status: S },
 ];
 
 export const pasangan9: Pasangan[] = [
   { id: 'b9-tugas-malaikat', bab: 9, tajuk: 'Malaikat ↔ tugas', kiri: 'Malaikat', kanan: 'Tugas',
+    tanyaKanan: 'Apakah tugas malaikat **{x}**?', tanyaKiri: 'Malaikat yang ditugaskan **{y_}** ialah…',
     pasangan: [
       ['Jibril', 'Menyampaikan wahyu kepada para nabi dan rasul'],
       ['Mikail', 'Menurunkan hujan dan mengagihkan rezeki'],
@@ -55,13 +56,15 @@ export const pasangan9: Pasangan[] = [
       ["'Izrail", 'Mencabut nyawa'],
       ['Munkar', 'Menyoal mayat di dalam kubur'],
       ['Nakir', 'Menyoal mayat di dalam kubur'],
-      ['Raqib', 'Mencatat amalan baik'],
-      ["'Atid", 'Mencatat amalan buruk'],
       ['Malik', 'Menjaga neraka'],
       ['Ridwan', 'Menjaga syurga'],
     ],
-    nota: 'Munkar dan Nakir mempunyai tugas yang sama — dalam soalan padanan, kedua-duanya diterima.',
+    nota: 'Munkar dan Nakir mempunyai tugas yang sama.', status: S },
+  { id: 'b9-raqib-atid', bab: 9, tajuk: "Raqib dan 'Atid", kiri: 'Malaikat', kanan: 'Tugas',
+    tanyaKanan: 'Apakah tugas malaikat **{x}**?', tanyaKiri: 'Malaikat yang ditugaskan **{y_}** ialah…',
+    pasangan: [['Raqib', 'Mencatat amalan baik'], ["'Atid", 'Mencatat amalan buruk']],
     sahkan: "Pembahagian tugas Raqib (baik) dan 'Atid (buruk) mengikut kitab rujukan; sebahagian ulama menyatakan kedua-duanya mencatat.", status: S },
   { id: 'b9-kitab-rasul', bab: 9, tajuk: 'Kitab ↔ rasul', kiri: 'Kitab', kanan: 'Diturunkan kepada',
+    tanyaKanan: 'Kitab **{x}** diturunkan kepada…', tanyaKiri: 'Kitab yang diturunkan kepada **{y}** ialah…',
     pasangan: [['Taurat', 'Nabi Musa'], ['Zabur', 'Nabi Daud'], ['Injil', 'Nabi Isa'], ['Al-Quran', 'Nabi Muhammad ﷺ']], status: S },
 ];
