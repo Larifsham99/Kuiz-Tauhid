@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --arab-size: 28px; color-scheme: light; }
+:root.dark { color-scheme: dark; }
+html, body { @apply text-malam-900; }
+body { font-family: "Plus Jakarta Sans", system-ui, sans-serif; -webkit-tap-highlight-color: transparent; background: radial-gradient(900px 480px at 100% -10%, rgba(14,122,90,.10), transparent 60%), linear-gradient(180deg, #F6F8F7, #FFFFFF) fixed; }
+.dark body, html.dark { @apply bg-malam-950 text-slate-100; }
+.dark body { background: radial-gradient(900px 480px at 100% -10%, rgba(14,122,90,.18), transparent 60%), #0A1220 fixed; }
+[hidden] { display: none !important; }
+
+.font-arab, .arab { font-family: "Amiri", "Scheherazade New", serif; }
+.arab-block { font-family: "Amiri", serif; font-size: var(--arab-size); line-height: 2; direction: rtl; text-align: right; unicode-bidi: plaintext; }
+.arab-inline { font-family: "Amiri", serif; font-size: 1.2em; line-height: 1.8; unicode-bidi: isolate; }
+.rich-line { unicode-bidi: plaintext; overflow-wrap: anywhere; }
+.grid > * { min-width: 0; }
+
+@layer components {
+  .hero { background-color: #0B3B2E; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='.07'%3E%3Cpath d='M36 8l28 28-28 28L8 36z'/%3E%3Cpath d='M16 16h40v40H16z'/%3E%3C/g%3E%3C/svg%3E"), linear-gradient(160deg, #0B3B2E 0%, #0F1B2D 100%); }
+  .card { @apply rounded-3xl bg-white shadow-kad ring-1 ring-malam-900/5 transition duration-200 dark:bg-malam-900 dark:ring-white/5; }
+  a.card:hover, button.card:hover { @apply -translate-y-0.5 shadow-lg ring-zamrud-200 dark:ring-zamrud-700; }
+  .btn { @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-2xl px-4 py-2.5 text-sm font-bold transition active:scale-[.98] disabled:pointer-events-none disabled:opacity-50; }
+  .btn-primary { @apply bg-zamrud-600 text-white shadow-md shadow-zamrud-600/25 hover:bg-zamrud-700; }
+  .btn-gold { @apply bg-emas-500 text-[#1F1505] shadow-md shadow-emas-500/30 hover:bg-emas-400; }
+  .btn-ghost { @apply bg-zamrud-50 text-zamrud-800 hover:bg-zamrud-100 dark:bg-white/5 dark:text-zamrud-200 dark:hover:bg-white/10; }
+  .btn-outline { @apply text-malam-900 ring-1 ring-malam-900/15 hover:bg-slate-50 dark:text-slate-100 dark:ring-white/15 dark:hover:bg-white/5; }
+  .btn-danger { @apply bg-rose-600 text-white hover:bg-rose-700; }
+  .input { @apply w-full rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm outline-none focus:border-zamrud-500 focus:ring-2 focus:ring-zamrud-100 dark:border-white/10 dark:bg-malam-950 dark:focus:ring-zamrud-800; }
+  .label { @apply mb-1 block text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400; }
+  .chip { @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-bold; }
+  .tbl { @apply w-full text-sm; }
+  .tbl th { @apply bg-zamrud-50 px-3 py-2 text-left font-bold text-zamrud-900 dark:bg-white/5 dark:text-zamrud-100; }
+  .tbl td { @apply border-t border-slate-100 px-3 py-2 align-top dark:border-white/5; }
+}
+
+@keyframes burst { 0% { opacity: 0; transform: translate(0,0) scale(.4) } 15% { opacity: 1 } 100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(1.1) rotate(var(--r)) } }
+.burst { position: absolute; left: 50%; top: 50%; pointer-events: none; animation: burst 1s ease-out forwards; }
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise .35s ease both; }
+@keyframes pop { 0% { transform: scale(.94); opacity: 0 } 60% { transform: scale(1.02) } 100% { transform: scale(1); opacity: 1 } }
+.pop { animation: pop .28s ease both; }
+.flip { perspective: 1000px; }
+.flip-inner { transition: transform .5s; transform-style: preserve-3d; position: relative; }
+.flip.on .flip-inner { transform: rotateY(180deg); }
+.flip-face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.flip-back { position: absolute; inset: 0; transform: rotateY(180deg); }
+@media (prefers-reduced-motion: reduce) { .burst, .rise, .pop { animation: none !important; } .flip-inner { transition: none; } }

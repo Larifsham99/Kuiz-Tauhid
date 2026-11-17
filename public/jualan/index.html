@@ -1,0 +1,913 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kuiz Tauhid — Uji Ilmu, Mantapkan Akidah</title>
+<meta name="description" content="Aplikasi kuiz interaktif ilmu Tauhid peringkat asas untuk kanak-kanak, remaja dan dewasa. 12 bab: Sifat 20, sifat rasul, rukun iman, malaikat, keluarga Nabi ﷺ, sahabat dan perkara ghaib. Terus guna di telefon.">
+<meta name="theme-color" content="#0B3B2E">
+<link rel="canonical" href="[URL HALAMAN JUALAN]">
+<link rel="icon" href="img/icon.svg" type="image/svg+xml">
+
+<!-- Open Graph / WhatsApp / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ms_MY">
+<meta property="og:title" content="Kuiz Tauhid — Uji Ilmu, Mantapkan Akidah">
+<meta property="og:description" content="Jadikan masa skrin lebih bermanfaat. Kuiz interaktif ilmu Tauhid asas untuk anak, remaja dan dewasa — terus di telefon.">
+<meta property="og:image" content="img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<script>
+/* =====================================================================
+   KONFIGURASI JUALAN — ubah di sini sahaja.
+   Nilai dalam [KURUNGAN] ialah placeholder. Biarkan "" untuk menyembunyikan.
+   ===================================================================== */
+window.SALES = {
+  // Pautan pembayaran (cth. ToyyibPay / Billplz). Kosong = butang bayar memaparkan makluman "akan dibuka".
+  ctaUrl: "",
+  hargaAsal: "RM[HARGA ASAL]",       // kosong "" = tidak dipaparkan
+  hargaJualan: "RM[HARGA JUALAN]",
+  jenis: "[SEKALI BAYAR / LANGGANAN]",
+  akses: "[TEMPOH AKSES]",
+  kaedah: "[KAEDAH AKSES — cth. kod pengaktifan dihantar melalui e-mel/WhatsApp]",
+  bilanganSoalan: "700+",             // soalan yang boleh dimainkan (tidak termasuk ⚠ perlu disahkan)
+  penyemak: "[NAMA PENYEMAK / USTAZ]", // kosong = baris penyemak disembunyikan
+  penjual: "[NAMA PENJUAL]",
+  whatsapp: "",                         // cth. "60123456789" — kosong = butang WhatsApp disembunyikan
+  whatsappMesej: "Assalamualaikum, saya berminat dengan aplikasi Kuiz Tauhid.",
+  // Screenshot sebenar (laluan imej). Kosong = mockup HTML dipaparkan.
+  screens: { utama: "", soalan: "", penerangan: "", keputusan: "" },
+  // Testimoni SEBENAR sahaja: { nama: "", peranan: "", teks: "" }. Kosong = seksyen disembunyikan.
+  testimoni: [],
+  // Analitik (kosong = tidak dimuatkan)
+  gaId: "",       // cth. "G-XXXXXXX"
+  metaPixel: "",  // cth. "1234567890"
+};
+</script>
+
+<style>
+:root{
+  --emerald:#0E7A5A; --emerald-d:#0B5E46; --emerald-50:#E8F5EF; --emerald-100:#CFEBDD;
+  --navy:#0F1B2D; --navy-2:#1B2A44; --ink:#132033; --muted:#4C5A6E; --line:#E3E8EE;
+  --gold:#C99A2E; --gold-l:#F6E7C1; --bg:#FFFFFF; --bg-2:#F6F8F7;
+  --radius:22px; --shadow:0 1px 2px rgba(15,27,45,.05),0 10px 30px rgba(15,27,45,.08);
+  --shadow-lg:0 20px 60px rgba(15,27,45,.18);
+  /* tema aplikasi (untuk mockup) */
+  --app-malam:#0B3B2E; --app-ungu:#0E7A5A; --app-bintang:#C99A2E; --app-bg:#F6F8F7; --app-betul:#0E7A5A; /* tema aplikasi: zamrud */
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Plus Jakarta Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:16px;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--emerald)}
+h1,h2,h3{line-height:1.2;margin:0;letter-spacing:-.02em}
+p{margin:0}
+.arab{font-family:Amiri,serif;direction:rtl}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+section{padding:72px 0;scroll-margin-top:64px}
+.eyebrow{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--emerald)}
+.h2{font-size:clamp(26px,5.4vw,40px);font-weight:800;margin-top:10px}
+.lead{font-size:clamp(16px,2.4vw,19px);color:var(--muted);margin-top:14px;max-width:680px}
+.center{text-align:center}.center .lead{margin-left:auto;margin-right:auto}
+
+/* Butang */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:14px 26px;border-radius:16px;font-weight:800;font-size:17px;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .15s ease,box-shadow .2s ease,background .2s}
+.btn-primary{background:var(--gold);color:#1F1505;box-shadow:0 8px 22px rgba(201,154,46,.35)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(201,154,46,.45);background:#D6A73A}
+.btn-primary:active{transform:translateY(0)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.btn-green{background:var(--emerald);color:#fff;box-shadow:0 8px 22px rgba(14,122,90,.3)}
+.btn-green:hover{background:var(--emerald-d);transform:translateY(-2px)}
+.btn svg{flex:none}
+.btn:focus-visible,a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+/* Navigasi */
+.nav{position:sticky;top:0;z-index:40;background:rgba(11,59,46,.92);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:800;font-size:17px}
+.logo-mark{width:34px;height:34px;border-radius:10px;background:var(--emerald);display:grid;place-items:center;border:1px solid rgba(255,255,255,.2)}
+.logo span em{font-style:normal;color:var(--gold-l)}
+.nav-cta{min-height:42px;padding:9px 16px;font-size:14px;border-radius:12px}
+
+/* Hero */
+.hero{position:relative;background:radial-gradient(1200px 500px at 85% -10%,rgba(14,122,90,.55),transparent 60%),linear-gradient(180deg,#0B3B2E 0%,#0F1B2D 100%);color:#fff;padding:44px 0 72px;overflow:hidden}
+.hero-pattern{position:absolute;inset:0;opacity:.07;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23fff' stroke-width='1'%3E%3Cpath d='M40 10l30 30-30 30-30-30z'/%3E%3Cpath d='M19 19h42v42H19z'/%3E%3C/g%3E%3C/svg%3E");background-size:80px 80px;mask-image:linear-gradient(180deg,#000 0%,transparent 80%);-webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 80%)}
+.hero .wrap{position:relative;display:grid;gap:40px;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;font-weight:700;padding:7px 12px;border-radius:99px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#E7F3EE}
+.hero h1{font-size:clamp(30px,7vw,54px);font-weight:800;margin-top:18px}
+.hero h1 .hl{color:var(--gold-l)}
+.hero .sub{font-size:clamp(16px,2.6vw,20px);color:#C9DDD5;margin-top:16px;max-width:600px}
+.tagline{margin-top:14px;font-weight:800;color:var(--gold-l);font-size:15px;letter-spacing:.02em}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.trust{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;font-size:14px;color:#B9D1C7}
+.trust span{display:inline-flex;align-items:center;gap:7px}
+.hero-visual{display:flex;justify-content:center;position:relative}
+.glow{position:absolute;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(201,154,46,.28),transparent 65%);top:50%;left:50%;transform:translate(-50%,-50%)}
+
+/* Telefon mockup */
+.phone{position:relative;width:270px;height:560px;border-radius:42px;background:#0A0F1A;padding:10px;box-shadow:var(--shadow-lg),inset 0 0 0 2px #2A3345;flex:none}
+.phone::before{content:"";position:absolute;top:18px;left:50%;transform:translateX(-50%);width:84px;height:22px;border-radius:12px;background:#0A0F1A;z-index:3}
+.screen{width:100%;height:100%;border-radius:33px;overflow:hidden;background:var(--app-bg);font-family:"Plus Jakarta Sans",sans-serif;color:var(--app-malam);position:relative;display:flex;flex-direction:column;font-size:12px}
+.screen img.shot{width:100%;height:100%;object-fit:cover}
+.s-top{padding:40px 14px 10px;display:flex;align-items:center;gap:8px}
+.s-bar{flex:1;height:8px;border-radius:99px;background:#E3EEE8;overflow:hidden}
+.s-bar i{display:block;height:100%;background:var(--app-ungu);border-radius:99px}
+.s-pill{display:inline-block;font-size:10px;font-weight:800;padding:3px 8px;border-radius:99px;background:#E8F5EF;color:var(--app-ungu)}
+.s-q{font-size:15px;font-weight:800;line-height:1.3;padding:0 14px;margin-top:8px}
+.s-q b{color:var(--app-ungu)}
+.s-ar{font-size:20px;color:#4C5A6E;padding:2px 14px 0}
+.s-opts{display:flex;flex-direction:column;gap:7px;padding:10px 14px}
+.s-opt{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid #DCE7E1;border-radius:12px;padding:9px 10px;font-weight:700;font-size:12.5px}
+.s-opt span{width:20px;height:20px;border-radius:6px;background:#E8F5EF;display:grid;place-items:center;font-size:10px;flex:none}
+.s-opt.ok{background:var(--app-betul);border-color:var(--app-betul);color:#fff}
+.s-opt.ok span{background:rgba(255,255,255,.22)}
+.s-opt.dim{color:#94A3B8;border-color:#EEF2F0}
+.s-fb{margin-top:auto;background:#E8F5EF;border-radius:18px 18px 0 0;padding:12px 14px 16px;color:#0B4A38}
+.s-fb b{color:#0B5E46;font-size:14px}
+.s-fb .ar{font-size:16px;margin-top:4px}
+.s-btn{display:block;text-align:center;background:var(--app-betul);color:#fff;border-radius:12px;padding:10px;font-weight:800;margin-top:8px}
+.s-hero{background:var(--app-malam);color:#fff;padding:40px 14px 44px}
+.s-card{margin:-30px 12px 0;background:#fff;border-radius:16px;padding:12px;box-shadow:0 6px 18px rgba(29,26,78,.12);display:flex;gap:10px;align-items:center;position:relative}
+.ring{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;flex:none}
+.ring i{width:36px;height:36px;border-radius:50%;background:#fff;display:grid;place-items:center;font-style:normal;font-weight:800;font-size:11px;color:var(--app-malam)}
+.s-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;padding:12px}
+.s-tile{background:#fff;border:1px solid #DCE7E1;border-radius:12px;padding:8px 4px;text-align:center;font-size:10px;font-weight:800;line-height:1.2}
+.s-tile .ic{width:32px;height:32px;border-radius:10px;margin:0 auto 5px;display:grid;place-items:center}
+.s-tile em{display:block;font-style:normal;color:#A67C22;letter-spacing:1px;margin-top:3px}
+.s-tile em s,.s-big+div s{text-decoration:none;color:#D5DDD9}
+.s-res{padding:44px 14px 14px;text-align:center}
+.s-big{width:120px;height:120px;border-radius:50%;margin:10px auto;display:grid;place-items:center;background:conic-gradient(var(--app-bintang) 0 80%,#E3EEE8 80% 100%)}
+.s-big i{width:96px;height:96px;border-radius:50%;background:var(--app-bg);display:grid;place-items:center;font-style:normal;font-size:28px;font-weight:800}
+.s-row{display:flex;justify-content:space-between;background:#fff;border-radius:12px;padding:9px 11px;margin:6px 0;font-weight:700;border:1px solid #E3E8EE}
+
+/* Bahagian masalah */
+.problem{background:var(--bg-2)}
+.qgrid{display:grid;gap:14px;margin-top:34px}
+.qcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);display:flex;gap:14px;align-items:flex-start}
+.qcard .n{flex:none;width:38px;height:38px;border-radius:12px;background:var(--emerald-50);color:var(--emerald);display:grid;place-items:center;font-weight:800}
+.qcard p{font-size:17px;font-weight:700}
+.pull{margin:38px auto 0;max-width:760px;background:var(--navy);color:#fff;border-radius:var(--radius);padding:30px 26px;text-align:center;position:relative;overflow:hidden}
+.pull p{font-size:clamp(18px,3vw,23px);font-weight:700;line-height:1.5}
+.pull p em{font-style:normal;color:var(--gold-l)}
+
+/* Penyelesaian */
+.solution .wrap{display:grid;gap:40px;align-items:center}
+.ticks{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:12px}
+.ticks li{display:flex;gap:12px;align-items:flex-start;font-size:17px}
+.ticks li svg{flex:none;margin-top:3px}
+.ticks b{display:block}
+.ticks small{display:block;color:var(--muted);font-size:15px}
+
+/* Topik */
+.topics{background:var(--emerald-50)}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:30px}
+.tcard{background:#fff;border-radius:18px;padding:16px;display:flex;gap:12px;align-items:center;border:1px solid var(--emerald-100);transition:transform .2s,box-shadow .2s}
+.tcard:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.tcard .no{flex:none;width:40px;height:40px;border-radius:12px;background:var(--emerald);color:#fff;display:grid;place-items:center;font-weight:800}
+.tcard b{display:block;font-size:15.5px;line-height:1.3}
+.tcard small{display:block;color:var(--muted);font-size:13px;line-height:1.4;margin-top:2px}
+
+/* Ciri */
+.fgrid{display:grid;gap:16px;margin-top:36px}
+.fcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s,border-color .2s}
+.fcard:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(15,27,45,.12);border-color:var(--emerald-100)}
+.ficon{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--emerald-50);margin-bottom:14px}
+.fcard h3{font-size:18px;font-weight:800}
+.fcard p{color:var(--muted);margin-top:6px;font-size:15.5px}
+
+/* Demo skrin */
+.demo{background:var(--navy);color:#fff}
+.demo .lead{color:#B9C6D8}
+.demo .eyebrow{color:var(--gold-l)}
+.rail{display:flex;gap:26px;overflow-x:auto;scroll-snap-type:x mandatory;padding:34px 20px 20px;margin:0 -20px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.rail figure{margin:0;scroll-snap-align:center;display:flex;flex-direction:column;align-items:center;gap:14px}
+.rail figcaption{font-weight:700;color:#DCE5F0;font-size:15px;text-align:center;max-width:260px}
+.rail figcaption small{display:block;color:#93A3B8;font-weight:500;font-size:13.5px}
+.rail-hint{text-align:center;color:#93A3B8;font-size:13px}
+
+/* Cuba */
+.try{background:var(--bg-2)}
+.quiz{max-width:640px;margin:30px auto 0;background:#fff;border-radius:26px;box-shadow:var(--shadow);border:1px solid var(--line);padding:24px}
+.qhead{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:700;color:var(--muted)}
+.qprog{height:8px;background:var(--emerald-50);border-radius:99px;margin:12px 0 18px;overflow:hidden}
+.qprog i{display:block;height:100%;width:0;background:var(--emerald);border-radius:99px;transition:width .4s ease}
+.qtext{font-size:20px;font-weight:800;line-height:1.35}
+.qar{font-size:26px;color:var(--muted);margin-top:4px}
+.qopts{display:grid;gap:10px;margin-top:16px}
+.qopt{display:flex;align-items:center;gap:12px;text-align:left;font:inherit;font-weight:700;font-size:16px;color:var(--ink);background:#fff;border:2px solid var(--line);border-radius:16px;padding:14px;min-height:56px;cursor:pointer;transition:border-color .15s,background .15s,transform .1s}
+.qopt:hover:not(:disabled){border-color:var(--emerald);background:var(--emerald-50)}
+.qopt:active:not(:disabled){transform:scale(.99)}
+.qopt .k{width:30px;height:30px;border-radius:9px;background:var(--emerald-50);display:grid;place-items:center;font-size:13px;flex:none}
+.qopt.ok{background:#0E7A5A;border-color:#0E7A5A;color:#fff}.qopt.ok .k{background:rgba(255,255,255,.2)}
+.qopt.no{background:#FDECEC;border-color:#E5484D;color:#8E1B1F}.qopt.no .k{background:#fff}
+.qopt:disabled{cursor:default}
+.qfb{margin-top:14px;border-radius:16px;padding:14px 16px;display:none}
+.qfb.show{display:block;animation:pop .3s ease}
+.qfb.ok{background:#E8F5EF;color:#0B4A38}.qfb.no{background:#FFF4E5;color:#6B4200}
+.qfb b{display:block;font-size:17px}
+.qfb .ar{font-size:20px;margin-top:6px}
+.qfb small{display:block;opacity:.8;margin-top:2px}
+.qnext{margin-top:14px;width:100%}
+.qend{text-align:center;display:none}
+.qend.show{display:block;animation:pop .35s ease}
+.qend .score{font-size:56px;font-weight:800;color:var(--emerald);line-height:1;margin:10px 0}
+@keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* Persona */
+.pgrid{display:grid;gap:16px;margin-top:34px}
+.pcard{border-radius:var(--radius);padding:26px;color:#fff;position:relative;overflow:hidden;min-height:220px;display:flex;flex-direction:column}
+.pcard h3{font-size:20px;font-weight:800;margin-top:12px}
+.pcard p{margin-top:8px;opacity:.9;font-size:15.5px}
+.pcard q{display:block;margin-top:auto;padding-top:16px;font-weight:700;font-style:italic;color:var(--gold-l);quotes:none}
+.p1{background:linear-gradient(160deg,#0E7A5A,#0B4D3B)}.p2{background:linear-gradient(160deg,#1B2A44,#0F1B2D)}
+.p3{background:linear-gradient(160deg,#0B5E46,#0F1B2D)}.p4{background:linear-gradient(160deg,#27385A,#132033)}
+.pbadge{width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,.12);display:grid;place-items:center}
+
+/* Nilai */
+.value .wrap{display:grid;gap:36px;align-items:center}
+.vlist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:24px}
+.vitem{background:var(--emerald-50);border-radius:18px;padding:18px}
+.vitem b{display:block;font-size:16px}
+.vitem small{color:var(--muted);font-size:14px;line-height:1.45;display:block;margin-top:4px}
+.note{margin-top:22px;display:flex;gap:12px;align-items:flex-start;background:#FFF8E8;border:1px solid var(--gold-l);border-radius:18px;padding:16px 18px;color:#5C4510;font-size:15px}
+.trustbox{background:var(--navy);color:#fff;border-radius:26px;padding:28px}
+.trustbox h3{font-size:20px}
+.trustbox ul{list-style:none;padding:0;margin:16px 0 0;display:grid;gap:12px}
+.trustbox li{display:flex;gap:10px;color:#D3DCE8;font-size:15.5px}
+.trustbox li svg{flex:none;margin-top:3px}
+
+/* Harga */
+.pricing{background:linear-gradient(180deg,#0B3B2E,#0F1B2D);color:#fff;position:relative;overflow:hidden}
+.pricing .eyebrow{color:var(--gold-l)}
+.pricing .lead{color:#B9D1C7}
+.pbox{max-width:520px;margin:34px auto 0;background:#fff;color:var(--ink);border-radius:28px;padding:30px 26px;box-shadow:var(--shadow-lg);position:relative}
+.pbox .tag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold);color:#1F1505;font-weight:800;font-size:13px;padding:6px 14px;border-radius:99px;white-space:nowrap}
+.pname{font-weight:800;font-size:20px;text-align:center}
+.prices{display:flex;justify-content:center;align-items:baseline;gap:12px;margin-top:10px;flex-wrap:wrap}
+.old{color:#8A96A8;text-decoration:line-through;font-size:20px;font-weight:700}
+.now{font-size:clamp(38px,8vw,50px);font-weight:800;color:var(--emerald);letter-spacing:-.02em}
+.pmeta{text-align:center;color:var(--muted);font-size:14.5px;margin-top:4px}
+.incl{list-style:none;padding:0;margin:22px 0;display:grid;gap:11px}
+.incl li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px}
+.incl li svg{flex:none;margin-top:3px}
+.pbox .btn{width:100%}
+.pfoot{display:grid;gap:6px;margin-top:16px;font-size:13.5px;color:var(--muted);text-align:center}
+.pay-note{display:none;margin-top:12px;background:#FFF8E8;border-radius:12px;padding:10px 12px;font-size:14px;color:#5C4510;text-align:center}
+.pay-note.show{display:block}
+
+/* Testimoni */
+.tmgrid{display:grid;gap:16px;margin-top:30px}
+.tm{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.tm p{font-size:16px}
+.tm b{display:block;margin-top:12px}
+.tm small{color:var(--muted)}
+
+/* FAQ */
+.faq{max-width:780px;margin:30px auto 0;display:grid;gap:10px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:18px;padding:0 20px;transition:box-shadow .2s}
+.faq details[open]{box-shadow:var(--shadow);border-color:var(--emerald-100)}
+.faq summary{cursor:pointer;list-style:none;font-weight:800;font-size:16.5px;padding:18px 0;display:flex;justify-content:space-between;gap:14px;align-items:center;min-height:56px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:none;width:12px;height:12px;border-right:2.5px solid var(--emerald);border-bottom:2.5px solid var(--emerald);transform:rotate(45deg);transition:transform .2s;margin-top:-6px}
+.faq details[open] summary::after{transform:rotate(-135deg);margin-top:6px}
+.faq .ans{padding:0 0 18px;color:var(--muted);font-size:15.5px}
+
+/* Penutup */
+.closing{background:var(--navy);color:#fff;text-align:center;position:relative;overflow:hidden}
+.closing .h2{max-width:800px;margin-left:auto;margin-right:auto}
+.closing .lead{color:#B9C6D8}
+.closing .ar{font-size:clamp(24px,5vw,34px);color:var(--gold-l);margin-top:26px}
+.closing .btn{margin-top:30px}
+
+footer{background:#0A1220;color:#8C9AAE;font-size:14px;padding:30px 0 110px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between}
+
+/* Sticky CTA (mobile) */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(255,255,255,.97);border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(15,27,45,.1);padding:10px 14px calc(10px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:12px;transform:translateY(110%);transition:transform .3s ease}
+.sticky.show{transform:none}
+.sticky .sp{line-height:1.2}
+.sticky .sp b{display:block;font-size:17px;color:var(--emerald)}
+.sticky .sp small{font-size:12px;color:var(--muted)}
+.sticky .btn{flex:1;min-height:50px;font-size:16px;padding:10px 14px;white-space:nowrap}
+.wa{position:fixed;right:16px;bottom:86px;z-index:49;width:54px;height:54px;border-radius:50%;background:#25D366;display:none;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.2);transition:transform .2s}
+.wa:hover{transform:scale(1.06)}
+.wa.show{display:grid}
+
+/* Animasi */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}.reveal{opacity:1;transform:none;transition:none}.btn,.fcard,.tcard{transition:none}}
+
+/* Tablet & desktop */
+@media (min-width:640px){
+  .qgrid{grid-template-columns:repeat(2,1fr)}
+  .fgrid{grid-template-columns:repeat(2,1fr)}
+  .pgrid{grid-template-columns:repeat(2,1fr)}
+  .tmgrid{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:960px){
+  section{padding:100px 0}
+  .hero{padding:70px 0 100px}
+  .hero .wrap{grid-template-columns:1.15fr .85fr}
+  .solution .wrap{grid-template-columns:.9fr 1.1fr}
+  .value .wrap{grid-template-columns:1.2fr .8fr}
+  .fgrid{grid-template-columns:repeat(4,1fr)}
+  .pgrid{grid-template-columns:repeat(4,1fr)}
+  .rail{justify-content:center;overflow-x:visible;flex-wrap:wrap;gap:12px;margin:0;padding:34px 0 20px}
+  .rail-hint{display:none}
+  .rail .phone{width:250px;height:520px}
+  .sticky{display:none}
+  .wa{bottom:24px}
+  footer{padding-bottom:30px}
+}
+@media (max-width:380px){.vlist{grid-template-columns:1fr}.phone{width:250px;height:520px}}
+</style>
+</head>
+<body>
+
+<!-- ============ NAVIGASI ============ -->
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Kuiz Tauhid — ke atas">
+      <span class="logo-mark"><svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5l19 19-19 19L5 24zM11 11h26v26H11z" fill="#fff"/><path d="M24 18a6 6 0 1 1 0 12a6 6 0 1 1 0-12z" fill="#F6E7C1"/></svg></span>
+      <span>Kuiz <em>Tauhid</em></span>
+    </a>
+    <a class="btn btn-primary nav-cta" href="#harga" data-track="nav_harga">Dapatkan</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero" aria-labelledby="hero-h">
+  <div class="hero-pattern" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <div class="chips"><span class="chip">Ilmu Tauhid Asas</span><span class="chip">Kuiz Interaktif</span><span class="chip">Belajar Sambil Menguji Diri</span></div>
+      <h1 id="hero-h">Anak Dah Biasa Dengan Telefon. <span class="hl">Apa Kata Kali Ini Mereka Gunakan Untuk Menguji Ilmu Agama?</span></h1>
+      <p class="sub">Kenalkan <b>Kuiz Tauhid</b> — aplikasi kuiz interaktif yang membantu anak-anak, remaja dan dewasa menguji kefahaman asas akidah dengan cara yang lebih menarik dan menyeronokkan.</p>
+      <p class="tagline">Uji Ilmu, Mantapkan Akidah.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#cuba" data-track="hero_cuba">Saya Nak Cuba Kuiz Tauhid
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#harga" data-track="hero_harga">Lihat harga</a>
+      </div>
+      <div class="trust">
+        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F6E7C1" stroke-width="2.4" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>12 bab asas akidah</span>
+        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F6E7C1" stroke-width="2.4" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Terus guna di telefon</span>
+        <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F6E7C1" stroke-width="2.4" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Tiada iklan</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="glow" aria-hidden="true"></div>
+      <!-- Mockup: skrin soalan -->
+      <div class="phone" role="img" aria-label="Paparan soalan dalam aplikasi Kuiz Tauhid">
+        <div class="screen" data-screen="soalan">
+          <div class="s-top"><div class="s-bar"><i style="width:60%"></i></div><b style="color:#A67C22">★ 3x</b></div>
+          <div style="padding:0 14px"><span class="s-pill">Bab 4 · Sifat Ma'ani</span></div>
+          <div class="s-q">Apakah lawan (sifat mustahil) bagi sifat <b>Iradah</b>?</div>
+          <div class="s-ar arab">الإرادة</div>
+          <div class="s-opts">
+            <div class="s-opt dim"><span>A</span>'Ajz (lemah)</div>
+            <div class="s-opt ok"><span>✓</span>Karahah (terpaksa)</div>
+            <div class="s-opt dim"><span>C</span>Jahl (jahil)</div>
+            <div class="s-opt dim"><span>D</span>Bukm (bisu)</div>
+          </div>
+          <div class="s-fb"><b>Tepat! +10 ★</b><div>Iradah bermaksud berkehendak. Lawannya Karahah.</div><div class="ar arab">إِنَّ رَبَّكَ فَعَّالٌ لِّمَا يُرِيدُ</div><small>Surah Hud: 107</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. MASALAH ============ -->
+<section class="problem" aria-labelledby="prob-h">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow">Cuba fikir sejenak</span>
+      <h2 class="h2" id="prob-h">Jujurnya, ramai ibu bapa pernah rasa begini…</h2>
+    </div>
+    <div class="qgrid">
+      <div class="qcard reveal"><span class="n">1</span><p>Berapa jam sehari agaknya anak kita memegang telefon?</p></div>
+      <div class="qcard reveal"><span class="n">2</span><p>Daripada masa itu, berapa banyak yang betul-betul memberi manfaat kepada mereka?</p></div>
+      <div class="qcard reveal"><span class="n">3</span><p>Bila kali terakhir anak mengulang kaji ilmu asas agama — atas kehendak sendiri?</p></div>
+      <div class="qcard reveal"><span class="n">4</span><p>Bagaimana nak jadikan belajar agama sesuatu yang anak <i>tunggu-tunggu</i>, bukan dipaksa?</p></div>
+    </div>
+    <p class="lead center reveal" style="margin-top:30px">Telefon bukan musuh. Cuma kadang-kadang kita tak sempat memilih kandungan yang sesuai untuk mereka — dan masa berlalu begitu sahaja.</p>
+    <div class="pull reveal">
+      <p>Kita mungkin tidak mampu menghalang anak daripada menggunakan telefon sepenuhnya. <em>Tetapi kita boleh memilih kandungan yang lebih bermanfaat untuk mereka.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. PENYELESAIAN ============ -->
+<section class="solution" aria-labelledby="sol-h">
+  <div class="wrap">
+    <div class="hero-visual reveal">
+      <!-- Mockup: halaman utama -->
+      <div class="phone" role="img" aria-label="Halaman utama aplikasi Kuiz Tauhid">
+        <div class="screen" data-screen="utama">
+          <div class="s-hero">
+            <div style="opacity:.75;font-size:11px">Assalamualaikum,</div>
+            <div style="font-size:16px;font-weight:800">Aisyah</div>
+            <div style="margin-top:6px;display:flex;gap:6px"><span style="background:rgba(255,255,255,.12);border-radius:99px;padding:3px 9px;font-weight:800;color:#C99A2E">★ 1,240</span><span style="background:rgba(255,255,255,.12);border-radius:99px;padding:3px 9px;font-weight:800">5 hari</span></div>
+          </div>
+          <div class="s-card">
+            <div class="ring" style="background:conic-gradient(#C99A2E 0 70%,#E8F5EF 70% 100%)"><i>7/10</i></div>
+            <div><div style="font-size:9.5px;font-weight:800;color:#0E7A5A">CABARAN HARIAN</div><b style="font-size:13px">Sifat Ma'ani</b><div style="font-size:10.5px;color:#4C5A6E">3 soalan lagi</div></div>
+          </div>
+          <div class="s-grid">
+            <div class="s-tile"><div class="ic" style="background:#E8F5EF"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 12c6-2 12-1 18 3v24c-6-4-12-5-18-3zM42 12c-6-2-12-1-18 3v24c6-4 12-5 18-3z" fill="#0E7A5A"/><path d="M24 2l2 4 4 2-4 2-2 4-2-4-4-2 4-2z" fill="#C99A2E"/></svg></div>Ilmu Tauhid<em>★★★</em></div>
+            <div class="s-tile"><div class="ic" style="background:#FBF6E8"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5a12 12 0 0 0-7 21.7V31h14v-4.3A12 12 0 0 0 24 5z" fill="#0E7A5A"/><path d="M18 34h12v3a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4z" fill="#C99A2E"/></svg></div>Hukum Akal<em>★★<s>★</s></em></div>
+            <div class="s-tile"><div class="ic" style="background:#E8F5EF"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5l19 19-19 19L5 24zM11 11h26v26H11z" fill="#0E7A5A"/><path d="M24 18a6 6 0 1 1 0 12a6 6 0 1 1 0-12z" fill="#C99A2E"/></svg></div>Sifat 20<em>★★<s>★</s></em></div>
+            <div class="s-tile"><div class="ic" style="background:#FBF6E8"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 23C18 11 8 9 3 11c2 9 9 15 21 17zM24 23c6-12 16-14 21-12-2 9-9 15-21 17z" fill="#0E7A5A"/><path d="M24 19a5 5 0 1 1 0 10a5 5 0 1 1 0-10z" fill="#C99A2E"/></svg></div>Malaikat<em>★<s>★</s><s>★</s></em></div>
+            <div class="s-tile"><div class="ic" style="background:#E8F5EF"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 31a16 16 0 0 1 32 0zM6 31h36v13H6z" fill="#0E7A5A"/><path d="M23 6h2v9h-2zM20 36h8v8h-8z" fill="#C99A2E"/></svg></div>Keluarga Nabi ﷺ<em><s>★</s><s>★</s><s>★</s></em></div>
+            <div class="s-tile"><div class="ic" style="background:#FBF6E8"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path d="M22 22h4v23h-4z" fill="#0E7A5A"/><path d="M24 22C20 12 10 10 5 14c8-2 13 2 19 8zM24 22c4-10 14-12 19-8-8-2-13 2-19 8z" fill="#C99A2E"/></svg></div>Sahabat<em><s>★</s><s>★</s><s>★</s></em></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Penyelesaiannya</span>
+      <h2 class="h2" id="sol-h">Kuiz Tauhid: masa skrin yang mendekatkan diri dengan ilmu agama.</h2>
+      <p class="lead">Satu aplikasi ringkas yang menukar beberapa minit di telefon kepada cabaran ilmu — jawab soalan, dapat markah serta-merta, dan faham kenapa jawapan itu betul.</p>
+      <ul class="ticks">
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E7A5A" stroke-width="2.6" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span><b>Ilmu Tauhid peringkat asas</b><small>Sifat 20, sifat rasul, rukun iman dan perkara asas yang patut dikenali setiap Muslim.</small></span></li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E7A5A" stroke-width="2.6" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span><b>Kuiz interaktif, bukan buku teks</b><small>Pilih jawapan, padankan, susun ikut tertib — rasa macam bermain.</small></span></li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E7A5A" stroke-width="2.6" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span><b>Tahu tahap kefahaman sebenar</b><small>Markah setiap kuiz dan rekod bab mana yang sudah kuat.</small></span></li>
+        <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0E7A5A" stroke-width="2.6" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span><b>Santai, ikut masa sendiri</b><small>5 minit sebelum tidur atau sejam di hujung minggu — terpulang.</small></span></li>
+      </ul>
+      <a class="btn btn-green" href="#cuba" style="margin-top:28px" data-track="sol_cuba">Cuba 3 soalan sekarang</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APA YANG DIPELAJARI (12 bab) ============ -->
+<section class="topics" aria-labelledby="top-h">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow">Isi kandungan</span>
+      <h2 class="h2" id="top-h">12 bab asas yang wajar dikenali setiap Muslim</h2>
+      <p class="lead">Disusun dari mudah ke lebih mendalam. Mula dari mana-mana bab yang anda suka.</p>
+    </div>
+    <div class="tgrid">
+      <div class="tcard reveal"><span class="no">1</span><span><b>Kenali Ilmu Tauhid</b><small>Takrif, hukum mempelajari, siapa mukallaf</small></span></div>
+      <div class="tcard reveal"><span class="no">2</span><span><b>Hukum Akal</b><small>Wajib, mustahil dan harus</small></span></div>
+      <div class="tcard reveal"><span class="no">3</span><span><b>Sifat Nafsiyyah &amp; Salbiyyah</b><small>Wujud, Qidam, Baqa' dan seterusnya</small></span></div>
+      <div class="tcard reveal"><span class="no">4</span><span><b>Sifat Ma'ani</b><small>Qudrah, Iradah, 'Ilmu, Hayah, Sama', Basar, Kalam</small></span></div>
+      <div class="tcard reveal"><span class="no">5</span><span><b>Sifat Ma'nawiyyah</b><small>Tujuh sifat yang lazim bagi Ma'ani</small></span></div>
+      <div class="tcard reveal"><span class="no">6</span><span><b>Sifat Harus bagi Allah</b><small>Yang harus bagi Allah dan contohnya</small></span></div>
+      <div class="tcard reveal"><span class="no">7</span><span><b>Sifat Rasul &amp; 25 Nabi</b><small>Sidq, Amanah, Tabligh, Fatanah, Ulul 'Azmi</small></span></div>
+      <div class="tcard reveal"><span class="no">8</span><span><b>Aqidah 50</b><small>Ulang kaji keseluruhan</small></span></div>
+      <div class="tcard reveal"><span class="no">9</span><span><b>Rukun Iman &amp; Malaikat</b><small>10 malaikat dan tugasnya, kitab-kitab</small></span></div>
+      <div class="tcard reveal"><span class="no">10</span><span><b>Nabi Muhammad ﷺ &amp; Keluarga</b><small>Nasab, ibu susuan, isteri, anak dan cucu</small></span></div>
+      <div class="tcard reveal"><span class="no">11</span><span><b>Para Sahabat</b><small>10 sahabat dijamin syurga, Khulafa' al-Rasyidin</small></span></div>
+      <div class="tcard reveal"><span class="no">12</span><span><b>Perkara Ghaib</b><small>Alam kubur, hari akhirat, tanda besar kiamat</small></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. CIRI ============ -->
+<section aria-labelledby="feat-h">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow">Kenapa ramai akan suka</span>
+      <h2 class="h2" id="feat-h">Apa yang menarik tentang Kuiz Tauhid?</h2>
+    </div>
+    <div class="fgrid">
+      <article class="fcard reveal"><div class="ficon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E7A5A" stroke-width="2.2" aria-hidden="true"><path d="M4 19V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h14"/></svg></div>
+        <h3>Soalan Tauhid asas yang tersusun</h3><p><span data-cfg="bilanganSoalan"></span> soalan merentasi 12 bab — tak perlu cari bahan sendiri, semuanya sudah disusun.</p></article>
+      <article class="fcard reveal"><div class="ficon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E7A5A" stroke-width="2.2" aria-hidden="true"><path d="M9 11l3 3 8-8M20 12v7a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h11"/></svg></div>
+        <h3>Jawapan interaktif, tak membosankan</h3><p>Pilih jawapan, Benar/Salah, padankan pasangan dan susun ikut tertib — otak terus aktif.</p></article>
+      <article class="fcard reveal"><div class="ficon"><svg width="24" height="24" viewBox="0 0 24 24" fill="#0E7A5A" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.5 5.5 21l2-7.5L2 9h7z"/></svg></div>
+        <h3>Markah &amp; bintang serta-merta</h3><p>Setiap jawapan betul beri bintang. Anak nampak hasil usaha sendiri — dan mahu cuba lagi.</p></article>
+      <article class="fcard reveal"><div class="ficon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E7A5A" stroke-width="2.2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg></div>
+        <h3>Penerangan setiap jawapan</h3><p>Bukan sekadar betul atau salah — diterangkan maknanya, berserta ayat al-Quran apabila berkaitan.</p></article>
+      <article class="fcard reveal"><div class="ficon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E7A5A" stroke-width="2.2" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h6"/></svg></div>
+        <h3>Ikut bab, ikut kemampuan</h3><p>Mula dari bab yang paling mudah. Setiap bab ada 3 bintang penguasaan untuk dikejar.</p></article>
+      <article class="fcard reveal"><div class="ficon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E7A5A" stroke-width="2.2" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div>
+        <h3>Rekod kemajuan</h3><p>Lihat bab mana sudah kuat dan mana perlu diulang. Ibu bapa pun boleh pantau.</p></article>
+      <article class="fcard reveal"><div class="ficon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E7A5A" stroke-width="2.2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></svg></div>
+        <h3>Cabaran harian &amp; ulang soalan salah</h3><p>Soalan yang tersilap akan muncul semula kemudian sehingga betul-betul faham.</p></article>
+      <article class="fcard reveal"><div class="ficon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E7A5A" stroke-width="2.2" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
+        <h3>Mesra semua peringkat umur</h3><p>Tulisan jelas, saiz tulisan Arab boleh dibesarkan, mod gelap, dan bunyi boleh dimatikan.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. PENGALAMAN APLIKASI ============ -->
+<section class="demo" aria-labelledby="demo-h">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow">Lihat sendiri</span>
+      <h2 class="h2" id="demo-h">Beginilah rasanya menggunakan Kuiz Tauhid</h2>
+      <p class="lead">Dari halaman utama hingga keputusan — ringkas, jelas dan terus ke soalan.</p>
+    </div>
+    <div class="rail" tabindex="0" aria-label="Paparan skrin aplikasi (leret ke kiri)">
+      <figure>
+        <div class="phone"><div class="screen" data-screen="utama">
+          <div class="s-hero"><div style="opacity:.75;font-size:11px">Assalamualaikum,</div><div style="font-size:16px;font-weight:800">Ahmad</div></div>
+          <div class="s-card"><div class="ring" style="background:conic-gradient(#C99A2E 0 40%,#E8F5EF 40% 100%)"><i>4/10</i></div><div><div style="font-size:9.5px;font-weight:800;color:#0E7A5A">CABARAN HARIAN</div><b style="font-size:13px">Para Sahabat</b></div></div>
+          <div class="s-grid">
+            <div class="s-tile"><div class="ic" style="background:#E8F5EF;font-size:15px;color:#0E7A5A">1</div>Ilmu Tauhid<em>★★★</em></div>
+            <div class="s-tile"><div class="ic" style="background:#FBF6E8;font-size:15px;color:#A67C22">2</div>Hukum Akal<em>★★<s>★</s></em></div>
+            <div class="s-tile"><div class="ic" style="background:#E8F5EF;font-size:15px;color:#0E7A5A">3</div>Sifat Salbiyyah<em>★<s>★</s><s>★</s></em></div>
+            <div class="s-tile"><div class="ic" style="background:#FBF6E8;font-size:15px;color:#A67C22">4</div>Sifat Ma'ani<em><s>★</s><s>★</s><s>★</s></em></div>
+            <div class="s-tile"><div class="ic" style="background:#E8F5EF;font-size:15px;color:#0E7A5A">9</div>Malaikat<em><s>★</s><s>★</s><s>★</s></em></div>
+            <div class="s-tile"><div class="ic" style="background:#FBF6E8;font-size:15px;color:#A67C22">11</div>Sahabat<em><s>★</s><s>★</s><s>★</s></em></div>
+          </div>
+          <div style="margin:4px 12px 0;background:#FDE2E0;border-radius:12px;padding:9px 11px;font-weight:800">Ulang Salah · 6 soalan</div>
+        </div></div>
+        <figcaption>Halaman utama<small>Cabaran harian, bab dan soalan untuk diulang</small></figcaption>
+      </figure>
+      <figure>
+        <div class="phone"><div class="screen" data-screen="soalan">
+          <div class="s-top"><div class="s-bar"><i style="width:30%"></i></div><b>3/10</b></div>
+          <div style="padding:0 14px"><span class="s-pill">Bab 9 · Malaikat</span></div>
+          <div class="s-q">Malaikat yang ditugaskan <b>menurunkan hujan</b> ialah…</div>
+          <div class="s-opts">
+            <div class="s-opt"><span>A</span>Jibril</div>
+            <div class="s-opt"><span>B</span>Mikail</div>
+            <div class="s-opt"><span>C</span>Israfil</div>
+            <div class="s-opt"><span>D</span>Ridwan</div>
+          </div>
+        </div></div>
+        <figcaption>Paparan soalan<small>Satu soalan satu skrin, pilihan jawapan yang besar</small></figcaption>
+      </figure>
+      <figure>
+        <div class="phone"><div class="screen" data-screen="penerangan">
+          <div class="s-top"><div class="s-bar"><i style="width:30%"></i></div><b>3/10</b></div>
+          <div class="s-q">Malaikat yang ditugaskan <b>menurunkan hujan</b> ialah…</div>
+          <div class="s-opts">
+            <div class="s-opt dim"><span>A</span>Jibril</div>
+            <div class="s-opt ok"><span>✓</span>Mikail</div>
+          </div>
+          <div class="s-fb"><b>Tepat! +10 ★</b><div style="margin-top:4px">Mikail ditugaskan menurunkan hujan dan mengagihkan rezeki. Jibril pula menyampaikan wahyu.</div><span class="s-btn">Teruskan</span></div>
+        </div></div>
+        <figcaption>Penerangan jawapan<small>Faham sebabnya, bukan sekadar betul atau salah</small></figcaption>
+      </figure>
+      <figure>
+        <div class="phone"><div class="screen" data-screen="keputusan">
+          <div class="s-res">
+            <b style="font-size:16px">Kuiz tamat!</b>
+            <div class="s-big"><i>8/10</i></div>
+            <div style="font-weight:800;color:#A67C22;font-size:14px">+80 ★ · Bintang bab: ★★<s>★</s></div>
+            <div style="margin-top:10px;text-align:left">
+              <div class="s-row"><span>Betul</span><b style="color:#0E7A5A">8</b></div>
+              <div class="s-row"><span>Perlu diulang</span><b style="color:#B3261E">2</b></div>
+              <div class="s-row"><span>Istiqamah</span><b>5 hari</b></div>
+            </div>
+            <span class="s-btn" style="background:#0E7A5A">Ulang 2 soalan salah</span>
+          </div>
+        </div></div>
+        <figcaption>Keputusan kuiz<small>Markah, bintang dan soalan yang perlu diulang</small></figcaption>
+      </figure>
+    </div>
+    <p class="rail-hint">← Leret untuk lihat skrin lain →</p>
+    <p class="center" style="color:#93A3B8;font-size:13px;margin-top:10px">Paparan contoh. Rupa sebenar mungkin berbeza sedikit.</p>
+  </div>
+</section>
+
+<!-- ============ CUBA 3 SOALAN ============ -->
+<section class="try" id="cuba" aria-labelledby="try-h">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow">Cubaan percuma</span>
+      <h2 class="h2" id="try-h">Rasa dah tahu? Jom uji dengan 3 soalan.</h2>
+      <p class="lead">Ini contoh soalan sebenar dalam aplikasi. Tak perlu daftar.</p>
+    </div>
+    <div class="quiz" id="quiz" aria-live="polite">
+      <div id="qbody">
+        <div class="qhead"><span id="qcount">Soalan 1 / 3</span><span id="qscore">★ 0</span></div>
+        <div class="qprog"><i id="qbar"></i></div>
+        <div class="qtext" id="qtext"></div>
+        <div class="qar arab" id="qar"></div>
+        <div class="qopts" id="qopts"></div>
+        <div class="qfb" id="qfb"></div>
+        <button class="btn btn-green qnext" id="qnext" hidden>Soalan seterusnya</button>
+      </div>
+      <div class="qend" id="qend">
+        <b style="font-size:18px">Markah anda</b>
+        <div class="score" id="qfinal">0/3</div>
+        <p id="qmsg" style="color:var(--muted)"></p>
+        <p style="margin-top:8px;color:var(--muted)">Ada lagi soalan menanti dalam 12 bab — dari Sifat 20 hingga perkara ghaib.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px">
+          <a class="btn btn-primary" href="#harga" data-track="quiz_harga">Saya Nak Akses Penuh</a>
+          <button class="btn" style="background:var(--emerald-50);color:var(--emerald)" id="qagain">Cuba semula</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. SIAPA SESUAI ============ -->
+<section aria-labelledby="who-h">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow">Untuk siapa?</span>
+      <h2 class="h2" id="who-h">Sesuai untuk seisi keluarga</h2>
+    </div>
+    <div class="pgrid">
+      <article class="pcard p1 reveal"><span class="pbadge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20a6 6 0 0 1 12 0M14 20a4 4 0 0 1 7 0"/></svg></span>
+        <h3>Ibu bapa</h3><p>Yang mahu screen time anak ada isi — aktiviti digital yang bermanfaat tanpa rasa terbeban.</p><q>"Kalau anak dah pegang telefon, biar ada yang bermanfaat."</q></article>
+      <article class="pcard p2 reveal"><span class="pbadge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+        <h3>Remaja</h3><p>Yang suka cabaran, kumpul markah dan mahu tahu sejauh mana kefahaman sebenar tentang agama.</p><q>"Selalu rasa dah tahu? Jom uji betul-betul!"</q></article>
+      <article class="pcard p3 reveal"><span class="pbadge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5"/></svg></span>
+        <h3>Pelajar sekolah agama &amp; pondok</h3><p>Yang mahu ulang kaji asas Tauhid di luar waktu kelas dan menguji kefahaman selepas belajar.</p><q>"Ulang kaji yang tak rasa macam ulang kaji."</q></article>
+      <article class="pcard p4 reveal"><span class="pbadge"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
+        <h3>Orang dewasa</h3><p>Yang mahu menyegarkan semula ilmu asas akidah secara santai, tanpa perlu menghadiri kelas formal.</p><q>"Lama tak ulang Sifat 20 — masih ingat lagi?"</q></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. NILAI PENDIDIKAN ============ -->
+<section class="value" style="background:var(--bg-2)" aria-labelledby="val-h">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Lebih daripada menghafal</span>
+      <h2 class="h2" id="val-h">Belajar agama bukan sekadar menghafal jawapan</h2>
+      <p class="lead">Kuiz yang baik membantu kita nampak apa yang sudah faham — dan apa yang belum. Kuiz Tauhid boleh menjadi salah satu medium untuk:</p>
+      <div class="vlist">
+        <div class="vitem"><b>Mengulang kaji</b><small>Ilmu yang pernah dipelajari kekal segar.</small></div>
+        <div class="vitem"><b>Kenal pasti kelemahan</b><small>Tahu topik mana yang perlu ditanya kepada guru.</small></div>
+        <div class="vitem"><b>Mengukuhkan ingatan</b><small>Soalan salah diulang sehingga melekat.</small></div>
+        <div class="vitem"><b>Membina minat</b><small>Ilmu agama terasa dekat dan menyeronokkan.</small></div>
+      </div>
+      <div class="note"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8A6512" stroke-width="2.2" aria-hidden="true" style="flex:none"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg>
+        <span><b>Peringatan:</b> Kuiz Tauhid ialah bahan sokongan pembelajaran. Ia tidak menggantikan pengajian bersama guru. Teruskan menghadiri kelas dan bertanya kepada guru yang bertauliah.</span></div>
+    </div>
+    <div class="trustbox reveal">
+      <h3>Kandungan yang dijaga</h3>
+      <ul>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6E7C1" stroke-width="2.6" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Berpandukan akidah Ahli Sunnah wal Jamaah (Asya'irah) seperti yang diajar di Malaysia.</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6E7C1" stroke-width="2.6" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Setiap soalan dibina daripada bank fakta bertulis, bukan ditulis sesuka hati.</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6E7C1" stroke-width="2.6" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Ayat al-Quran dinyatakan dengan nama surah dan nombor ayat.</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6E7C1" stroke-width="2.6" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Perkara khilaf tidak dijadikan soalan untuk peringkat asas.</li>
+        <li data-cfg-row="penyemak"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6E7C1" stroke-width="2.6" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span>Disemak oleh: <b data-cfg="penyemak"></b></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONI (dipaparkan hanya jika ada testimoni sebenar) ============ -->
+<section id="testimoni" hidden aria-labelledby="tm-h">
+  <div class="wrap">
+    <div class="center"><span class="eyebrow">Kata pengguna</span><h2 class="h2" id="tm-h">Apa kata mereka yang sudah mencuba</h2></div>
+    <div class="tmgrid" id="tmgrid"></div>
+  </div>
+</section>
+
+<!-- ============ 8. HARGA ============ -->
+<section class="pricing" id="harga" aria-labelledby="price-h">
+  <div class="hero-pattern" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative">
+    <div class="center reveal">
+      <span class="eyebrow">Tawaran</span>
+      <h2 class="h2" id="price-h">Miliki akses Kuiz Tauhid</h2>
+      <p class="lead">Satu pembelian untuk seisi keluarga belajar dan menguji diri.</p>
+    </div>
+    <div class="pbox reveal">
+      <span class="tag">Kuiz Tauhid · Akses Penuh</span>
+      <div class="pname" style="margin-top:6px">Uji Ilmu, Mantapkan Akidah.</div>
+      <div class="prices"><span class="old" data-cfg="hargaAsal"></span><span class="now" data-cfg="hargaJualan"></span></div>
+      <div class="pmeta"><span data-cfg="jenis"></span> · Akses: <span data-cfg="akses"></span></div>
+      <ul class="incl">
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E7A5A" stroke-width="2.6" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Semua 12 bab — Sifat 20 hingga perkara ghaib</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E7A5A" stroke-width="2.6" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span><span data-cfg="bilanganSoalan"></span> soalan dengan penerangan jawapan</span></li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E7A5A" stroke-width="2.6" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Cabaran harian &amp; ulang soalan salah automatik</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E7A5A" stroke-width="2.6" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Markah, bintang &amp; rekod kemajuan</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E7A5A" stroke-width="2.6" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Nota ringkas &amp; kad imbas setiap bab</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E7A5A" stroke-width="2.6" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Beberapa profil dalam satu telefon (ibu bapa &amp; anak-anak)</li>
+        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E7A5A" stroke-width="2.6" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>Tiada iklan</li>
+      </ul>
+      <a class="btn btn-primary js-pay" href="#harga" data-track="price_beli">Miliki Akses Kuiz Tauhid Sekarang
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <div class="pay-note" role="status">Pembayaran akan dibuka tidak lama lagi. <span class="js-wa-inline"></span></div>
+      <div class="pfoot">
+        <span><b>Cara akses:</b> <span data-cfg="kaedah"></span></span>
+        <span>Pembayaran selamat melalui gerbang pembayaran dalam talian.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. FAQ ============ -->
+<section aria-labelledby="faq-h">
+  <div class="wrap">
+    <div class="center reveal"><span class="eyebrow">Soalan lazim</span><h2 class="h2" id="faq-h">Ada soalan sebelum membeli?</h2></div>
+    <div class="faq">
+      <details><summary>Apakah itu aplikasi Kuiz Tauhid?</summary><div class="ans">Aplikasi kuiz interaktif ilmu Tauhid peringkat asas. Pengguna menjawab soalan mengikut bab, mendapat markah serta-merta, dan membaca penerangan bagi setiap jawapan. Kandungannya merangkumi 12 bab — daripada pengenalan Ilmu Tauhid, Sifat 20 dan sifat rasul hingga rukun iman, keluarga Nabi ﷺ, para sahabat dan perkara ghaib.</div></details>
+      <details><summary>Siapakah yang sesuai menggunakannya?</summary><div class="ans">Kanak-kanak (dengan bimbingan ibu bapa), remaja, pelajar sekolah agama dan pondok, serta orang dewasa yang mahu mengulang kaji asas akidah.</div></details>
+      <details><summary>Adakah ia sesuai untuk kanak-kanak?</summary><div class="ans">Ya, untuk kanak-kanak yang sudah boleh membaca. Soalan menggunakan bahasa Melayu yang mudah dengan istilah Arab bersertakan maknanya. Untuk kanak-kanak kecil, kami cadangkan ibu bapa menjawab bersama — ia juga peluang yang baik untuk berbual tentang agama.</div></details>
+      <details><summary>Adakah soalannya terlalu susah?</summary><div class="ans">Tidak. Kandungannya peringkat asas dan disusun dari mudah ke lebih mendalam. Setiap jawapan disertakan penerangan, jadi walaupun tersilap, pengguna tetap belajar sesuatu. Perkara yang ada khilaf ulama tidak dijadikan soalan.</div></details>
+      <details><summary>Adakah aplikasi ini sesuai untuk orang dewasa?</summary><div class="ans">Sangat sesuai. Ramai orang dewasa belajar Sifat 20 semasa kecil dan sudah lama tidak mengulangnya. Kuiz Tauhid cara santai untuk menyegarkan kembali ilmu itu, ikut masa sendiri.</div></details>
+      <details><summary>Bagaimana cara mendapatkan akses?</summary><div class="ans">Tekan butang "Miliki Akses Kuiz Tauhid Sekarang" dan lengkapkan pembayaran. Selepas itu: <span data-cfg="kaedah"></span>.</div></details>
+      <details><summary>Adakah perlu memasang aplikasi?</summary><div class="ans">Tidak perlu muat turun dari Play Store atau App Store. Kuiz Tauhid dibuka terus melalui pelayar (Chrome/Safari) dan boleh ditambah ke skrin utama telefon supaya dibuka seperti aplikasi biasa.</div></details>
+      <details><summary>Adakah boleh digunakan melalui telefon?</summary><div class="ans">Ya — ia direka khas untuk telefon pintar, dan juga boleh digunakan di tablet serta komputer.</div></details>
+      <details><summary>Adakah pembelian sekali sahaja?</summary><div class="ans">Jenis pembelian: <span data-cfg="jenis"></span>. Tempoh akses: <span data-cfg="akses"></span>.</div></details>
+      <details><summary>Adakah aplikasi ini menggantikan kelas pengajian agama?</summary><div class="ans">Tidak. Kuiz Tauhid ialah bahan sokongan untuk mengulang kaji dan menguji kefahaman. Ilmu agama tetap perlu dipelajari bersama guru. Gunakan aplikasi ini untuk mengukuhkan apa yang dipelajari di kelas, dan bawa soalan yang belum difahami kepada guru.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. PENUTUP ============ -->
+<section class="closing" aria-labelledby="close-h">
+  <div class="hero-pattern" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative">
+    <h2 class="h2 reveal" id="close-h">Ilmu asas agama perlu sentiasa dipelajari dan diulang kaji.</h2>
+    <p class="lead center reveal">Jadikan telefon bukan sekadar tempat hiburan, tetapi juga salah satu medium untuk menguji dan menambah kefahaman — untuk anak, untuk keluarga, dan untuk diri sendiri.</p>
+    <div class="ar arab reveal">رَبِّ زِدْنِي عِلْمًا</div>
+    <p class="reveal" style="color:#93A3B8;font-size:14px;margin-top:4px">"Ya Tuhanku, tambahkanlah ilmuku." — Surah Taha: 114</p>
+    <a class="btn btn-primary js-pay reveal" href="#harga" data-track="close_beli">JOM MULAKAN CABARAN KUIZ TAUHID!</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Kuiz Tauhid · <span data-cfg="penjual"></span></span>
+    <span><a href="#harga" style="color:#B9C6D8">Harga</a> · <a href="#cuba" style="color:#B9C6D8">Cuba percuma</a> · <a class="js-wa-link" href="#harga" style="color:#B9C6D8">Hubungi kami</a></span>
+  </div>
+</footer>
+
+<!-- Sticky CTA (telefon) -->
+<div class="sticky" id="sticky" aria-hidden="true">
+  <div class="sp"><b data-cfg="hargaJualan"></b><small>Akses penuh 12 bab</small></div>
+  <a class="btn btn-primary js-pay" href="#harga" data-track="sticky_beli" tabindex="-1">Dapatkan Sekarang</a>
+</div>
+
+<!-- Butang WhatsApp (dipaparkan jika nombor ditetapkan) -->
+<a class="wa" id="wa" href="#" target="_blank" rel="noopener" aria-label="Hubungi melalui WhatsApp" data-track="wa_float">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 2.9 2.9 0 0 0-.9 2.2 5 5 0 0 0 1.1 2.7 11.5 11.5 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3z"/></svg>
+</a>
+
+<script>
+(function () {
+  "use strict";
+  var C = window.SALES || {};
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  /* ---- Isi nilai konfigurasi ---- */
+  $$("[data-cfg]").forEach(function (el) {
+    var v = C[el.getAttribute("data-cfg")];
+    if (v) el.textContent = v; else el.style.display = "none";
+  });
+  $$("[data-cfg-row]").forEach(function (el) { if (!C[el.getAttribute("data-cfg-row")]) el.remove(); });
+  $("#yr").textContent = new Date().getFullYear();
+
+  /* ---- Screenshot sebenar menggantikan mockup ---- */
+  var S = C.screens || {};
+  $$("[data-screen]").forEach(function (el) {
+    var src = S[el.getAttribute("data-screen")];
+    if (src) el.innerHTML = '<img class="shot" loading="lazy" decoding="async" alt="" src="' + encodeURI(src) + '">';
+  });
+
+  /* ---- Pautan pembayaran ---- */
+  var payOk = /^https?:\/\//i.test(C.ctaUrl || "");
+  $$(".js-pay").forEach(function (a) {
+    if (payOk) { a.href = C.ctaUrl; a.target = "_blank"; a.rel = "noopener"; }
+  });
+  var priceBtn = $("#harga .js-pay");
+  if (!payOk && priceBtn) {
+    priceBtn.addEventListener("click", function (e) { e.preventDefault(); $(".pay-note").classList.add("show"); });
+  }
+
+  /* ---- WhatsApp ---- */
+  var waNum = String(C.whatsapp || "").replace(/\D/g, "");
+  if (waNum) {
+    var waUrl = "https://wa.me/" + waNum + "?text=" + encodeURIComponent(C.whatsappMesej || "");
+    var wa = $("#wa"); wa.href = waUrl; wa.classList.add("show");
+    $$(".js-wa-link").forEach(function (a) { a.href = waUrl; a.target = "_blank"; a.rel = "noopener"; });
+    var inl = $(".js-wa-inline"); if (inl) inl.innerHTML = 'Hubungi kami di <a href="' + waUrl + '" target="_blank" rel="noopener">WhatsApp</a>.';
+  } else {
+    $$(".js-wa-link").forEach(function (a) { a.parentNode.removeChild(a.previousSibling); a.remove(); });
+  }
+
+  /* ---- Testimoni sebenar ---- */
+  var T = (C.testimoni || []).filter(function (t) { return t && t.teks && t.nama; });
+  if (T.length) {
+    var g = $("#tmgrid");
+    T.forEach(function (t) {
+      var d = document.createElement("figure"); d.className = "tm";
+      var p = document.createElement("p"); p.textContent = "“" + t.teks + "”";
+      var b = document.createElement("b"); b.textContent = t.nama;
+      var s = document.createElement("small"); s.textContent = t.peranan || "";
+      d.appendChild(p); d.appendChild(b); d.appendChild(s); g.appendChild(d);
+    });
+    $("#testimoni").hidden = false;
+  }
+
+  /* ---- Analitik (pilihan) ---- */
+  function track(name) {
+    try { if (window.gtag) window.gtag("event", name); if (window.fbq) window.fbq("trackCustom", name); } catch (e) {}
+  }
+  if (C.gaId) {
+    var gs = document.createElement("script"); gs.async = true; gs.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(C.gaId); document.head.appendChild(gs);
+    window.dataLayer = window.dataLayer || []; window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date()); window.gtag("config", C.gaId);
+  }
+  if (C.metaPixel) {
+    !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0"; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    window.fbq("init", C.metaPixel); window.fbq("track", "PageView");
+  }
+  $$("[data-track]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      var n = el.getAttribute("data-track"); track(n);
+      if (/beli/.test(n) && payOk && window.fbq) window.fbq("track", "InitiateCheckout");
+    });
+  });
+
+  /* ---- Animasi masuk ---- */
+  var rev = $$(".reveal");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { rootMargin: "0px 0px -8% 0px" });
+    rev.forEach(function (el) { io.observe(el); });
+  } else rev.forEach(function (el) { el.classList.add("in"); });
+
+  /* ---- Sticky CTA: muncul selepas hero, sembunyi di seksyen harga ---- */
+  var sticky = $("#sticky"), hero = $(".hero"), harga = $("#harga");
+  var heroOut = false, hargaIn = false;
+  function upd() { var on = heroOut && !hargaIn; sticky.classList.toggle("show", on); sticky.setAttribute("aria-hidden", on ? "false" : "true"); $(".js-pay", sticky).tabIndex = on ? 0 : -1; }
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (es) { heroOut = !es[0].isIntersecting; upd(); }).observe(hero);
+    new IntersectionObserver(function (es) { hargaIn = es[0].isIntersecting; upd(); }, { threshold: .15 }).observe(harga);
+  }
+
+  /* ---- Bunyi ringkas (Web Audio) untuk kuiz cubaan ---- */
+  var ac = null;
+  function tone(freqs) {
+    try {
+      ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+      freqs.forEach(function (f, i) {
+        var t = ac.currentTime + i * 0.11, o = ac.createOscillator(), g = ac.createGain();
+        o.type = "triangle"; o.frequency.value = f;
+        g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.18, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.35);
+        o.connect(g); g.connect(ac.destination); o.start(t); o.stop(t + 0.4);
+      });
+    } catch (e) {}
+  }
+
+  /* ---- Kuiz cubaan (soalan daripada Bank Fakta) ---- */
+  var Q = [
+    { q: "Apakah lawan (sifat mustahil) bagi sifat Iradah?", ar: "الإرادة", o: ["'Ajz (lemah)", "Karahah (terpaksa)", "Jahl (jahil)", "Bukm (bisu)"], a: 1,
+      ex: "Iradah bermaksud berkehendak. Lawannya Karahah — terpaksa atau tidak berkehendak. 'Ajz pula lawan bagi Qudrah.", dalil: "إِنَّ رَبَّكَ فَعَّالٌ لِّمَا يُرِيدُ", ref: "Surah Hud: 107" },
+    { q: "Malaikat yang ditugaskan menurunkan hujan dan mengagihkan rezeki ialah…", ar: "", o: ["Jibril", "Mikail", "Israfil", "Ridwan"], a: 1,
+      ex: "Mikail menurunkan hujan dan mengagihkan rezeki. Jibril menyampaikan wahyu, Israfil meniup sangkakala, Ridwan menjaga syurga.", dalil: "", ref: "" },
+    { q: "Berapakah bilangan Sifat Ma'ani bagi Allah?", ar: "صفات المعاني", o: ["5", "7", "13", "20"], a: 1,
+      ex: "Tujuh: Qudrah, Iradah, 'Ilmu, Hayah, Sama', Basar dan Kalam.", dalil: "", ref: "" },
+  ];
+  var i = 0, score = 0;
+  var el = { body: $("#qbody"), end: $("#qend"), count: $("#qcount"), sc: $("#qscore"), bar: $("#qbar"), text: $("#qtext"), ar: $("#qar"), opts: $("#qopts"), fb: $("#qfb"), next: $("#qnext") };
+  function render() {
+    var it = Q[i];
+    el.count.textContent = "Soalan " + (i + 1) + " / " + Q.length;
+    el.sc.textContent = "★ " + score * 10;
+    el.bar.style.width = (i / Q.length * 100) + "%";
+    el.text.textContent = it.q; el.ar.textContent = it.ar; el.ar.style.display = it.ar ? "" : "none";
+    el.opts.innerHTML = ""; el.fb.className = "qfb"; el.fb.innerHTML = ""; el.next.hidden = true;
+    it.o.forEach(function (t, k) {
+      var b = document.createElement("button"); b.type = "button"; b.className = "qopt";
+      b.innerHTML = '<span class="k">' + "ABCD"[k] + "</span>"; b.appendChild(document.createTextNode(t));
+      b.addEventListener("click", function () { answer(k); });
+      el.opts.appendChild(b);
+    });
+  }
+  function answer(k) {
+    var it = Q[i], btns = $$(".qopt", el.opts), ok = k === it.a;
+    btns.forEach(function (b, j) { b.disabled = true; if (j === it.a) { b.classList.add("ok"); b.querySelector(".k").textContent = "✓"; } else if (j === k) b.classList.add("no"); });
+    if (ok) { score++; tone([660, 990]); } else tone([220]);
+    el.sc.textContent = "★ " + score * 10;
+    el.fb.className = "qfb show " + (ok ? "ok" : "no");
+    el.fb.innerHTML = "<b>" + (ok ? "Tepat! +10 ★" : "Hampir! Jawapan betul: " + it.o[it.a]) + "</b>";
+    var p = document.createElement("div"); p.textContent = it.ex; el.fb.appendChild(p);
+    if (it.dalil) { var d = document.createElement("div"); d.className = "ar arab"; d.textContent = it.dalil; el.fb.appendChild(d); var r = document.createElement("small"); r.textContent = it.ref; el.fb.appendChild(r); }
+    el.next.textContent = i < Q.length - 1 ? "Soalan seterusnya" : "Lihat markah";
+    el.next.hidden = false; el.next.focus({ preventScroll: true });
+    track("quiz_jawab_" + (i + 1));
+  }
+  el.next.addEventListener("click", function () {
+    i++;
+    if (i < Q.length) { render(); return; }
+    el.bar.style.width = "100%";
+    el.body.style.display = "none"; el.end.classList.add("show");
+    $("#qfinal").textContent = score + "/" + Q.length;
+    $("#qmsg").textContent = score === 3 ? "MasyaAllah, cemerlang! Sedia untuk cabaran 12 bab penuh?" : score === 2 ? "Bagus! Sedikit lagi untuk markah penuh." : "Tak mengapa — inilah gunanya mengulang kaji.";
+    if (score === 3) tone([523, 659, 784, 1047]);
+    track("quiz_tamat_" + score);
+  });
+  $("#qagain").addEventListener("click", function () { i = 0; score = 0; el.end.classList.remove("show"); el.body.style.display = ""; render(); });
+  render();
+})();
+</script>
+</body>
+</html>
